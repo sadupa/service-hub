@@ -76,7 +76,7 @@
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="hms.services.hub"/>
+        <property name="packagesToScan" value="hms.service.hub"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
