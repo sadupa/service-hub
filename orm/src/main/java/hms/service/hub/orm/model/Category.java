@@ -11,35 +11,36 @@ import java.io.Serializable;
 /**
  * Created by udara on 7/26/16.
  */
+
 @Entity
-@Table(name="area")
-public class Area implements Serializable{
+@Table(name = "category")
+public class Category implements Serializable{
 
-    private static final long serialVersionUID = 1927557244278436381L;
+    private static final long serialVersionUID = 1927554625278436381L;
 
-    public Area(){}
+    public Category(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "area_name", nullable = false)
-    private String areaName;
+    @Column(name = "category_name", nullable = false)
+    private String categoryName;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getAreaName() {
-        return areaName;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setAreaName(String areaName) {
-        this.areaName = areaName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }
