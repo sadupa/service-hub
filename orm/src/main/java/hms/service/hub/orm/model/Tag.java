@@ -16,6 +16,8 @@ import javax.persistence.*;
  * @Author Sadupa Wijeratne
  * Created on : 7/26/16 3:59 PM
  */
+@Entity
+@Table(name = "tag")
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
