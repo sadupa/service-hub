@@ -65,19 +65,19 @@
     <appender name="ASYNC-DEBUG" class="ch.qos.logback.classic.AsyncAppender">
         <queueSize>500</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <appender-ref ref="DEBUG" />
+        <appender-ref ref="DEBUG"/>
     </appender>
 
     <appender name="ASYNC-INFO" class="ch.qos.logback.classic.AsyncAppender">
         <queueSize>500</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <appender-ref ref="INFO" />
+        <appender-ref ref="INFO"/>
     </appender>
 
     <appender name="ASYNC-ERROR" class="ch.qos.logback.classic.AsyncAppender">
         <queueSize>500</queueSize>
         <discardingThreshold>0</discardingThreshold>
-        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR"/>
     </appender>
 
     <root level="debug">
@@ -103,7 +103,10 @@
         <level value="OFF"/>
     </logger>
     <logger name="org.springframework">
-        <level value="OFF" />
+        <level value="OFF"/>
+    </logger>
+    <logger name="mysql" level="DEBUG">
+        <level value="OFF"/>
     </logger>
 
 </configuration>
