@@ -91,10 +91,6 @@
         <appender-ref ref="ASYNC-ERROR"/>
     </logger>
 
-    <logger name="trans" level="INFO" additivity="false">
-        <appender-ref ref="ASYNC-TRANS"/>
-    </logger>
-
     <!--disable additional logs-->
     <logger name="org.apache.cxf">
         <level value="OFF"/>
