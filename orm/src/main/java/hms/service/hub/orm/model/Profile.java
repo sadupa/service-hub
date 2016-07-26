@@ -40,10 +40,6 @@ public class Profile implements Serializable{
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "area_id")
-    private Area area;
-
     public long getId() {
         return id;
     }
@@ -84,11 +80,4 @@ public class Profile implements Serializable{
         this.user = user;
     }
 
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
-    }
 }
