@@ -25,7 +25,7 @@ public class Profile implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @Column(name = "profile_name", nullable = false)
     private String profileName;
