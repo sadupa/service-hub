@@ -102,5 +102,8 @@
     <logger name="org.hibernate">
         <level value="OFF"/>
     </logger>
+    <logger name="org.springframework">
+        <level value="OFF" />
+    </logger>
 
 </configuration>
