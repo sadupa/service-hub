@@ -27,11 +27,11 @@ public class Profile implements Serializable{
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "profile_name", nullable = false)
-    private String profileName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "profile_summary")
-    private String profileSummary;
+    @Column(name = "summary")
+    private String summary;
 
     @Column(name = "mobile_no", nullable = false)
     private String mobileNo;
@@ -48,12 +48,12 @@ public class Profile implements Serializable{
         this.id = id;
     }
 
-    public String getProfileName() {
-        return profileName;
+    public String getName() {
+        return name;
     }
 
-    public void setProfileName(String profileName) {
-        this.profileName = profileName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMobileNo() {
@@ -64,12 +64,12 @@ public class Profile implements Serializable{
         this.mobileNo = mobileNo;
     }
 
-    public String getProfileSummary() {
-        return profileSummary;
+    public String getSummary() {
+        return summary;
     }
 
-    public void setProfileSummary(String profileSummary) {
-        this.profileSummary = profileSummary;
+    public void setProfileSummary(String summary) {
+        this.summary = summary;
     }
 
     public User getUser() {
