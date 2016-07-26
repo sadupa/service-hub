@@ -8,7 +8,7 @@ sh $TOMCAT_PATH/bin/catalina.sh stop
 cd $SERVICES_HUB_PATH
 mvn clean install -DskipTests -o
 
-rm -r $TOMCAT_PATH/webapps/sevices-hub
+rm -r $TOMCAT_PATH/webapps/services-hub
 cp web/target/services-hub.war $TOMCAT_PATH/webapps
 
 export JPDA_ADDRESS=5005
