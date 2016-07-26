@@ -63,7 +63,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:mvc-dispatcher-servlet.xml,
-            classpath:security-config.xml
+            classpath:spring-security.xml
         </param-value>
     </context-param>
 

@@ -12,6 +12,9 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 7907557244205936381L;
 
+    public static final String ACTIVE = "ACTIVE";
+    public static final String INACTIVE = "INACTIVE";
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -26,18 +29,58 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private UserStatus status;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
-    public enum UserStatus {
-        ACTIVE,
-        INACTIVE
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
