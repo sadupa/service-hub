@@ -9,7 +9,7 @@ cd $SERVICES_HUB_PATH
 mvn clean install -DskipTests -o
 
 rm -r $TOMCAT_PATH/webapps/sevices-hub
-cp web/target/sevices-hub.war $TOMCAT_PATH/webapps
+cp web/target/services-hub.war $TOMCAT_PATH/webapps
 
 export JPDA_ADDRESS=5005
 export JPDA_TRANSPORT=dt_socket
