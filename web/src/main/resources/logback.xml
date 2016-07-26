@@ -84,7 +84,7 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <logger name="hms.services.hub" level="DEBUG" additivity="false">
+    <logger name="hms.service.hub" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ASYNC-DEBUG"/>
         <appender-ref ref="ASYNC-INFO"/>

@@ -155,7 +155,7 @@
     </dependencies>
 
     <build>
-        <finalName>services-hub</finalName>
+        <finalName>service-hub</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
