@@ -14,4 +14,14 @@ public interface UserService {
     List<User> getAllUsers();
 
     List<User> getAllActiveUsers();
+
+    void createUser(User user);
+
+    void updateUser(User user);
+
+    void changePassword(long userId, String password);
+
+    void activateUser(long id);
+
+    void deactivateUser(long id);
 }

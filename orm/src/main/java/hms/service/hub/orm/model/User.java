@@ -36,6 +36,9 @@ public class User implements Serializable {
     @JoinColumn(name = "role_id")
     private Role role;
 
+    @Column(name = "enabled")
+    private boolean enabled;
+
     public long getId() {
         return id;
     }
@@ -82,5 +85,13 @@ public class User implements Serializable {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

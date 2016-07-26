@@ -33,4 +33,35 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllActiveUsers() {
         return userDao.findAllActiveUsers();
     }
+
+    @Override
+    public void createUser(User user) {
+        userDao.save(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userDao.update(user);
+    }
+
+    @Override
+    public void changePassword(long userId, String password) {
+        User user = userDao.findUserById(userId);
+        user.setPassword(password);
+        userDao.update(user);
+    }
+
+    @Override
+    public void activateUser(long id) {
+        User user = userDao.findUserById(id);
+        user.setStatus(User.ACTIVE);
+        userDao.update(user);
+    }
+
+    @Override
+    public void deactivateUser(long id) {
+        User user = userDao.findUserById(id);
+        user.setStatus(User.INACTIVE);
+        userDao.update(user);
+    }
 }
