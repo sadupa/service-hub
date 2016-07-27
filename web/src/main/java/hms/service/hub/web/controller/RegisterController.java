@@ -44,7 +44,8 @@ public class RegisterController {
     private AuthenticationManager authenticationManager;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getRegisterPage(ModelMap modelMap) {
+    public String getRegisterPage(ModelMap modelMap, HttpServletRequest request) {
+        authenticateUserAndSetSession("user3", "1", request);
         modelMap.put("isSignUpPage", true);
         return "register";
     }
@@ -58,7 +59,7 @@ public class RegisterController {
             String password = bCryptPasswordEncoder.encode(user.getPassword());
             System.out.println(username + " -->" + password);
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-            //userService.createUser(user);
+            userService.createUser(user);
             authenticateUserAndSetSession(username, password, request);
             addRedirectAttr(redirectAttributes, CSS_SUCCESS, "Registration success");
             return "redirect:/";
