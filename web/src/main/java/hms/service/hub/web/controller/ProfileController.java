@@ -1,10 +1,12 @@
 package hms.service.hub.web.controller;
 
 import hms.service.hub.core.service.UserService;
+import hms.service.hub.orm.model.Profile;
 import hms.service.hub.orm.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,17 +29,22 @@ public class ProfileController {
     private UserService userService;
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String getRegisterPage(ModelMap modelMap) {
+    public String getProfilePage(ModelMap modelMap) {
+        User user = getCurrectUser();
+        if (user != null) {
+            modelMap.put("user", user);
+        }
         return "profile";
     }
 
-    @RequestMapping(value = "/user/save", method = RequestMethod.POST)
-    public String saveProfile(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveProfile(@ModelAttribute Profile profile, RedirectAttributes redirectAttributes) {
 
         try {
             addRedirectAttr(redirectAttributes, CSS_SUCCESS, "Registration success");
             return "redirect:/";
         } catch (Exception e) {
+            logger.error("error occurred", e);
             addRedirectAttr(redirectAttributes, CSS_DANGER, "Error occurred");
             return "redirect:/register/";
         }
@@ -46,5 +53,18 @@ public class ProfileController {
     private void addRedirectAttr(RedirectAttributes redirectAttributes, String css, String msg) {
         redirectAttributes.addFlashAttribute("css", css);
         redirectAttributes.addFlashAttribute("msg", msg);
+    }
+
+    private User getCurrectUser() {
+        Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (!(obj instanceof org.springframework.security.core.userdetails.User)) {
+            return null;
+        }
+        org.springframework.security.core.userdetails.User authUser =
+                (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext()
+                        .getAuthentication().getPrincipal();
+        String username = authUser.getUsername();
+
+        return userService.getUserByName(username);
     }
 }

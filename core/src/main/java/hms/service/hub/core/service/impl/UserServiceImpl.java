@@ -30,6 +30,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByName(String name) {
+        return userDao.findUserByName(name);
+    }
+
+    @Override
     public List<User> getAllActiveUsers() {
         return userDao.findAllActiveUsers();
     }
