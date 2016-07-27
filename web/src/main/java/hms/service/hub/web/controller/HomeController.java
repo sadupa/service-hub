@@ -1,4 +1,4 @@
-package hms.service.hub.web;
+package hms.service.hub.web.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by chathura on 7/26/16.
  */
 @Controller
-public class TestController {
+public class HomeController {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getHomePage() {
