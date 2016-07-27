@@ -36,6 +36,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(User user) {
+        user.setStatus(User.ACTIVE);
+        user.setEnabled(true);
         userDao.save(user);
     }
 
