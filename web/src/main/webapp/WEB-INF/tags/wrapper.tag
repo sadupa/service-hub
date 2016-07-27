@@ -32,8 +32,9 @@
     <link rel="stylesheet" href="<c:url value="/css/owl.transitions.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/responsive.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/custom.css"/> ">
     <script type="text/javascript" src="<c:url value="/js/vendor/modernizr-2.6.2.min.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"/>"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="<c:url value="/js/vendor/jquery-1.10.2.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/js/bootstrap.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/js/owl.carousel.min.js"/>"></script>
@@ -49,6 +50,7 @@
 </head>
 <body>
 <t:header/>
+<t:menu/>
 <div class="container-fluid">
     <div class="row">
         <jsp:invoke fragment="page_body"/>

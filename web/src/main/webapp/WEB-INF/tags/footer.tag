@@ -1,3 +1,6 @@
+<%@ tag description="Footer tag to use in pages after login" pageEncoding="UTF-8" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 </div>
 <div class="footer-area">
@@ -5,7 +8,7 @@
         <div class="row footer">
             <div class="col-md-4">
                 <div class="single-footer">
-                    <img src="img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
+                    <img src="<c:url value="/images/footer-logo.png" />" alt="" class="wow pulse" data-wow-delay="1s">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati architecto quaerat facere blanditiis tempora sequi nulla accusamus, possimus cum necessitatibus suscipit quia autem mollitia, similique quisquam molestias. Vel unde, blanditiis.</p>
                 </div>
             </div>
@@ -42,7 +45,7 @@
             </div>
         </div>
         <div class="row footer-copy">
-            <p><span>(C) webstie, All rights reserved</span> | <span>Graphic Designed by <a href="https://dribbble.com/siblu">Eftakher Alam</a></span> | <span> Web Designed by <a href="http://ohidul.me">Ohidul Islam</a></span> </p>
+            <p><span>(C) webstie, All rights reserved</span> </p>
         </div>
     </div>
 </div>
