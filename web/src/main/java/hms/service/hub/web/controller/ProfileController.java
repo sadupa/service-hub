@@ -5,7 +5,6 @@ import hms.service.hub.orm.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,10 +16,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * Created by yasitha on 7/27/16.
  */
 @Controller
-@RequestMapping("/register")
-public class RegisterController {
-
-    Logger logger = LoggerFactory.getLogger(RegisterController.class);
+@RequestMapping("/profile")
+public class ProfileController {
+    Logger logger = LoggerFactory.getLogger(ProfileController.class);
 
     private static final String CSS_DANGER = "danger";
     private static final String CSS_SUCCESS = "success";
@@ -28,21 +26,15 @@ public class RegisterController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String getRegisterPage(ModelMap modelMap) {
-        modelMap.put("isSignUpPage", true);
-        return "register";
+        return "profile";
     }
 
     @RequestMapping(value = "/user/save", method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
+    public String saveProfile(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
 
         try {
-            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-            userService.createUser(user);
             addRedirectAttr(redirectAttributes, CSS_SUCCESS, "Registration success");
             return "redirect:/";
         } catch (Exception e) {
