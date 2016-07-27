@@ -47,3 +47,100 @@
     </beans:bean>
 
 </beans:beans>
+
+
+        <!--<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+&lt;!&ndash;<http auto-config="true">&ndash;&gt;
+&lt;!&ndash;<intercept-url pattern="/admin**" access="ROLE_ADMIN" />&ndash;&gt;
+&lt;!&ndash;</http>&ndash;&gt;
+
+&lt;!&ndash;<authentication-manager>&ndash;&gt;
+&lt;!&ndash;<authentication-provider>&ndash;&gt;
+&lt;!&ndash;<user-service>&ndash;&gt;
+&lt;!&ndash;<user name="prasad" password="prasad123" authorities="ROLE_ADMIN" />&ndash;&gt;
+&lt;!&ndash;</user-service>&ndash;&gt;
+&lt;!&ndash;</authentication-provider>&ndash;&gt;
+&lt;!&ndash;</authentication-manager>&ndash;&gt;
+
+<http auto-config="true" create-session="ifRequired" use-expressions="true">
+    <access-denied-handler error-page="/403" />
+    &lt;!&ndash;<intercept-url pattern="/" access="hasRole('ROLE_LOGIN')" />
+    <intercept-url pattern="/*" access="isAuthenticated()"/> &lt;!&ndash; this means all URL in this app will be checked if user is authenticated &ndash;&gt;&ndash;&gt;
+    <form-login
+            login-page="/"
+            default-target-url="/home"
+            authentication-failure-url="/?error"
+            username-parameter="username"
+            password-parameter="password"/>
+    &lt;!&ndash;<logout logout-success-url="/login" delete-cookies="JSESSIONID"/> &lt;!&ndash; the logout url we will use in JSP &ndash;&gt;&ndash;&gt;
+    &lt;!&ndash;<csrf />&ndash;&gt;
+    <intercept-url pattern="/home" access="hasRole('ROLE_LOGIN')" />
+    <intercept-url pattern="/user/create-account" access="hasRole('ROLE_LOGIN')" />
+    <intercept-url pattern="/user/view-all" access="hasRole('ROLE_VIEW_USER_ACCOUNTS')"/>
+    <intercept-url pattern="/user/edit" access="hasRole('ROLE_EDIT_USER_ACCOUNT')"/>
+    <intercept-url pattern="/user/edit/state" access="hasRole('ROLE_EDIT_USER_ACCOUNT')"/>
+    <intercept-url pattern="/user/edit/password" access="hasRole('ROLE_EDIT_USER_ACCOUNT')"/>
+    <intercept-url pattern="/role/view/all" access="hasRole('ROLE_VIEW_PERMISSIONS')"/>
+    <intercept-url pattern="/role/edit" access="hasRole('ROLE_EDIT_PERMISSIONS')"/>
+    <intercept-url pattern="/role/add" access="hasRole('ROLE_CREATE')"/>
+    <intercept-url pattern="/merchant/view-all" access="hasRole('ROLE_VIEW_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/merchant/edit" access="hasRole('ROLE_EDIT_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/merchant/create" access="hasRole('ROLE_CREATE_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/merchant/view-senderId" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/merchant/view-all" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/subscriber/**" access="hasRole('ROLE_VIEW_SUBSCRIBER_LIST')"/>
+    <intercept-url pattern="/campaign/**" access="hasRole('ROLE_VIEW_CAMPAIGN')"/>
+    <intercept-url pattern="/plan/view" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/plan/**" access="hasRole('ROLE_VIEW_PLAN')"/>
+    <intercept-url pattern="/plan/purchases" access="hasRole('ROLE_VIEW_PURCHASE')"/>
+    <intercept-url pattern="/wallet/**" access="hasRole('ROLE_VIEW_WALLET')"/>
+    <intercept-url pattern="/report/**" access="hasAnyRole('ROLE_VIEW_MY_MERCHANT_ACCOUNT','ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/report/smsStatsReport/**" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/report/revenueReport/**" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/report/creditUsageReport/**" access="hasAnyRole('ROLE_VIEW_MY_MERCHANT_ACCOUNT','ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/report/purchaseHistoryReport/**" access="hasAnyRole('ROLE_VIEW_MY_MERCHANT_ACCOUNT','ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/report/campaignReport/**" access="hasAnyRole('ROLE_VIEW_MY_MERCHANT_ACCOUNT','ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/api/view-all" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/api/**" access="hasAnyRole('ROLE_VIEW_MY_MERCHANT_ACCOUNT','ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/form/**" access="hasRole('ROLE_VIEW_SUBSCRIBE_FORMS')"/>
+    <intercept-url pattern="/chat/**" access="hasRole('ROLE_LOGIN')"/>
+    <intercept-url pattern="/coupon/view" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/coupon/edit" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/coupon/create" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/coupon/generateCouponCode" access="hasRole('ROLE_CONFIRM_MERCHANT_ACCOUNT')"/>
+    <intercept-url pattern="/coupon/validateCoupon"
+                   access="hasAnyRole('ROLE_CONFIRM_MERCHANT_ACCOUNT','USER_COUPON_PRIVILEGE')"/>
+    <logout logout-success-url="/" delete-cookies="JSESSIONID"/>
+    <session-management session-fixation-protection="newSession" invalid-session-url="/" session-authentication-error-url="/?error">
+        <concurrency-control session-registry-alias="sessionRegistry" />
+    </session-management>
+</http>
+
+<beans:bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+    <beans:property name="userDetailsService" ref="userDetailsService" ></beans:property>
+
+</beans:bean>
+
+<beans:bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
+    <beans:property name="providers">
+        <beans:list>
+            <beans:ref local="daoAuthenticationProvider"/>
+        </beans:list>
+    </beans:property>
+</beans:bean>
+
+<authentication-manager>
+    <authentication-provider user-service-ref="userDetailsService">
+        <password-encoder hash="md5"></password-encoder>
+    </authentication-provider>
+</authentication-manager>
+
+</beans:beans>-->
