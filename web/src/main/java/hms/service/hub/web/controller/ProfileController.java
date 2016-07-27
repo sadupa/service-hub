@@ -1,5 +1,6 @@
 package hms.service.hub.web.controller;
 
+import hms.service.hub.core.service.ProfileService;
 import hms.service.hub.core.service.UserService;
 import hms.service.hub.orm.model.Profile;
 import hms.service.hub.orm.model.User;
@@ -28,6 +29,9 @@ public class ProfileController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ProfileService profileService;
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String getProfilePage(ModelMap modelMap) {
         User user = getCurrectUser();
@@ -41,6 +45,7 @@ public class ProfileController {
     public String saveProfile(@ModelAttribute Profile profile, RedirectAttributes redirectAttributes) {
 
         try {
+            profileService.createProfile(profile);
             addRedirectAttr(redirectAttributes, CSS_SUCCESS, "Registration success");
             return "redirect:/";
         } catch (Exception e) {
