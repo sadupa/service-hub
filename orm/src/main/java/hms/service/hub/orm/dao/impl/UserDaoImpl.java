@@ -21,6 +21,12 @@ public class UserDaoImpl extends UniversalDaoImpl<User> implements UserDao {
     }
 
     @Override
+    public User findUserByName(String name) {
+        Session session = getCurrentSession();
+        return (User) session.createCriteria(User.class).add(Restrictions.eq("name", name)).uniqueResult();
+    }
+
+    @Override
     public List<User> findAllUsers() {
         Session session = getCurrentSession();
         return session.createCriteria(User.class).list();
