@@ -1,6 +1,6 @@
-package hms.service.hub.core.impl;
+package hms.service.hub.core.service.impl;
 
-import hms.service.hub.core.ProfileService;
+import hms.service.hub.core.service.ProfileService;
 import hms.service.hub.orm.dao.ProfileDao;
 import hms.service.hub.orm.model.Profile;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package hms.service.hub.core.impl;
+package hms.service.hub.core.service.impl;
 
-import hms.service.hub.core.PermissionService;
+import hms.service.hub.core.service.PermissionService;
 import hms.service.hub.orm.dao.PermissionDao;
 import hms.service.hub.orm.model.Permission;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package hms.service.hub.core;
+package hms.service.hub.core.service;
 
 import hms.service.hub.orm.model.Profile;
 

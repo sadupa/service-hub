@@ -1,6 +1,6 @@
 package hms.service.hub.web;
 
-import hms.service.hub.core.UserService;
+import hms.service.hub.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

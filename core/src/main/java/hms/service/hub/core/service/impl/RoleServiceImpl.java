@@ -1,6 +1,6 @@
-package hms.service.hub.core.impl;
+package hms.service.hub.core.service.impl;
 
-import hms.service.hub.core.RoleService;
+import hms.service.hub.core.service.RoleService;
 import hms.service.hub.orm.dao.RoleDao;
 import hms.service.hub.orm.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
