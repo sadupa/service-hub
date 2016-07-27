@@ -19,7 +19,7 @@ public class AreaDaoImpl extends UniversalDaoImpl<Area> implements AreaDao {
         Session session = getCurrentSession();
         return session.createCriteria(Area.class)
                 .setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY)
-                .addOrder(Order.asc("areaName"))
+                .addOrder(Order.asc("name"))
                 .list();
     }
 }

@@ -33,8 +33,8 @@
 
          <table id="table"
                 data-toggle="table"
-                data-filter-control="true"
-                data-filter-show-clear="true"
+                <%--data-filter-control="true"--%>
+                <%--data-filter-show-clear="true"--%>
                 data-search="true"
                 data-side-pagination="client"
                 data-pagination="true">
@@ -48,11 +48,12 @@
              </thead>
 
              <tbody>
-             <c:forEach items="${services}" var="service" varStatus="q1">
+             <c:forEach items="${services}" var="services" varStatus="q1">
                  <tr>
-                     <td class="table-td2">${service.id}</td>
-                     <td class="table-td2">${service.category_id}</td>
-                     <td class="table-td2">${service.area}</td>
+                     <td class="table-td2">${services.id}</td>
+                     <td class="table-td2">${services.title}</td>
+                     <td class="table-td2">${services.category.name}</td>
+                     <td class="table-td2">${services.area.areaName}</td>
                  </tr>
              </c:forEach>
              </tbody>
