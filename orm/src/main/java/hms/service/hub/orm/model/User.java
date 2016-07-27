@@ -7,7 +7,8 @@ import java.io.Serializable;
  * Created by yasitha on 7/26/16.
  */
 @Entity
-@Table(name = "user")
+@Table(name = "user",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 7907557244205936381L;
