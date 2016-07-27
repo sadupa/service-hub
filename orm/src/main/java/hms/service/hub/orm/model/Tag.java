@@ -1,6 +1,7 @@
 package hms.service.hub.orm.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * (C) Copyright 2016 hSenid Mobile Solutions (Pvt) Limited.
@@ -18,7 +19,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "tag")
-public class Tag {
+public class Tag implements Serializable {
+
+    private static final long serialVersionUID = 1262981245786128715L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -28,4 +32,28 @@ public class Tag {
     @OneToOne
     @JoinColumn(name = "category")
     private Category category;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }

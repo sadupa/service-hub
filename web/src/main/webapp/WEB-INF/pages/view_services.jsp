@@ -52,7 +52,7 @@
                  <tr>
                      <td class="table-td2">${services.id}</td>
                      <td class="table-td2">${services.title}</td>
-                     <td class="table-td2">${services.category.categoryName}</td>
+                     <td class="table-td2">${services.category.name}</td>
                      <td class="table-td2">${services.area.areaName}</td>
                  </tr>
              </c:forEach>

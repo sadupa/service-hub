@@ -23,7 +23,7 @@ public class ServiceRequestDaoImpl extends UniversalDaoImpl<ServiceRequest> impl
                     .createAlias("area", "area")
                     .createAlias("category", "category")
                     .add(Restrictions.eq("area.areaName", area))
-                    .add(Restrictions.eq("category.categoryName", category))
+                    .add(Restrictions.eq("category.name", category))
                     .add(Restrictions.like("description",keyword))
                     .list();
         } else {
@@ -31,7 +31,7 @@ public class ServiceRequestDaoImpl extends UniversalDaoImpl<ServiceRequest> impl
                     .createAlias("area", "area")
                     .createAlias("category", "category")
                     .add(Restrictions.eq("area.areaName", area))
-                    .add(Restrictions.eq("category.categoryName", category))
+                    .add(Restrictions.eq("category.name", category))
                     .list();
         }
     }

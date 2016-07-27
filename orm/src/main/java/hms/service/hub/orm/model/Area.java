@@ -25,7 +25,7 @@ public class Area implements Serializable{
     private Long id;
 
     @Column(name = "area_name", nullable = false)
-    private String areaName;
+    private String name;
 
     public long getId() {
         return id;
@@ -35,11 +35,11 @@ public class Area implements Serializable{
         this.id = id;
     }
 
-    public String getAreaName() {
-        return areaName;
+    public String getName() {
+        return name;
     }
 
-    public void setAreaName(String areaName) {
-        this.areaName = areaName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

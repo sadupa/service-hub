@@ -24,7 +24,7 @@ public class Category implements Serializable{
     private Long id;
 
     @Column(name = "category_name", nullable = false)
-    private String categoryName;
+    private String name;
 
     public Long getId() {
         return id;
@@ -34,12 +34,12 @@ public class Category implements Serializable{
         this.id = id;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
