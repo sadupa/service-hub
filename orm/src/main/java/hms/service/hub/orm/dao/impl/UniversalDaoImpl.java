@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class UniversalDaoImpl<T extends Serializable> implements UniversalDao<T> {
 
     @Autowired
-    private SessionFactory sessionFactory;
+    protected SessionFactory sessionFactory;
 
     public Long save(T object) {
         Session session = getCurrentSession();
