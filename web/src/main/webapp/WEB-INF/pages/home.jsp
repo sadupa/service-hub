@@ -33,19 +33,16 @@
                          </div>
                          <div class="form-group">
                              <select name="" id="citySelect" class="form-control">
-                                 <option>Select Your City</option>
-                                 <option selected>New york, CA</option>
-                                 <option>New york, CA</option>
-                                 <option>New york, CA</option>
-                                 <option>New york, CA</option>
+                                 <c:forEach items="${area}" var="area" varStatus="status">
+                                     <option value="${area.id}">${area.areaName}</option>
+                                 </c:forEach>
                              </select>
                          </div>
                          <div class="form-group">
                              <select name="" id="categorySelect" class="form-control">
-                                 <option>Select Your Category</option>
-                                 <option selected>Graphic Design</option>
-                                 <option>Web Design</option>
-                                 <option>App Design</option>
+                                 <c:forEach items="${category}" var="category" varStatus="status">
+                                     <option value="${category.id}">${category.categoryName}</option>
+                                 </c:forEach>
                              </select>
                          </div>
                          <input type="submit" class="btn" value="Search">
