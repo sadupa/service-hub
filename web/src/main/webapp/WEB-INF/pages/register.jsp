@@ -20,7 +20,7 @@
 
     <jsp:attribute name="page_body">
 
-        <div style="background-color: #e6e6e6;">
+        <div style="background-color: #e6e6e6;background: -webkit-linear-gradient(#ffd1d1, #fdffed);background: -o-linear-gradient(#ffd1d1, #fdffed);background: -moz-linear-gradient(#ffd1d1, #fdffed);background: linear-gradient(#ffd1d1, #fdffed);">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10" style="padding: 10px 0 50px 0">

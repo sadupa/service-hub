@@ -1,5 +1,6 @@
 package hms.service.hub.web.controller;
 
+import hms.service.hub.core.service.RoleService;
 import hms.service.hub.core.service.UserService;
 import hms.service.hub.orm.model.User;
 import org.slf4j.Logger;
@@ -37,6 +38,9 @@ public class RegisterController {
     private UserService userService;
 
     @Autowired
+    private RoleService roleService;
+
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
@@ -45,7 +49,6 @@ public class RegisterController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getRegisterPage(ModelMap modelMap, HttpServletRequest request) {
-        authenticateUserAndSetSession("user3", "1", request);
         modelMap.put("isSignUpPage", true);
         return "register";
     }
@@ -56,9 +59,9 @@ public class RegisterController {
 
         try {
             String username = user.getName();
-            String password = bCryptPasswordEncoder.encode(user.getPassword());
-            System.out.println(username + " -->" + password);
+            String password = user.getPassword();
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            user.setRole(roleService.getRoleById(1));
             userService.createUser(user);
             authenticateUserAndSetSession(username, password, request);
             addRedirectAttr(redirectAttributes, CSS_SUCCESS, "Registration success");
