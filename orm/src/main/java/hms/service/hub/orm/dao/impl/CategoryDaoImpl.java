@@ -4,6 +4,7 @@ import hms.service.hub.orm.dao.CategoryDao;
 import hms.service.hub.orm.model.Category;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class CategoryDaoImpl extends UniversalDaoImpl<Category> implements Categ
         Session session = getCurrentSession();
         return session.createCriteria(Category.class)
                 .setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY)
+                .addOrder(Order.asc("categoryName"))
                 .list();
     }
 }
