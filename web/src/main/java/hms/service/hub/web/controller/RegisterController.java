@@ -59,8 +59,8 @@ public class RegisterController {
 
         try {
             String username = user.getName();
-            String password = bCryptPasswordEncoder.encode(user.getPassword());
-            user.setPassword(password);
+            String password = user.getPassword();
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             user.setRole(roleService.getRoleById(1));
             userService.createUser(user);
             authenticateUserAndSetSession(username, password, request);
