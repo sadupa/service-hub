@@ -58,14 +58,11 @@ public class RegisterController {
                            HttpServletRequest request) {
 
         try {
-            String username = user.getName();
-            String password = user.getPassword();
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             user.setRole(roleService.getRoleById(1));
             userService.createUser(user);
-            authenticateUserAndSetSession(username, password, request);
             addRedirectAttr(redirectAttributes, CSS_SUCCESS, "Registration success");
-            return "redirect:/";
+            return "redirect:/auth";
         } catch (Exception e) {
             logger.error("error occurred", e);
             addRedirectAttr(redirectAttributes, CSS_DANGER, "Error occurred");
@@ -81,6 +78,7 @@ public class RegisterController {
     private void authenticateUserAndSetSession(String username, String password, HttpServletRequest request) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
 
+        // generate session if one doesn't exist
         request.getSession();
 
         token.setDetails(new WebAuthenticationDetails(request));

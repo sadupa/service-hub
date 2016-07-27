@@ -62,6 +62,7 @@ public class ProfileController {
 
     private User getCurrectUser() {
         Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(obj.toString());
         if (!(obj instanceof org.springframework.security.core.userdetails.User)) {
             return null;
         }
