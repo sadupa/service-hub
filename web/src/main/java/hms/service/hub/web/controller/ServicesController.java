@@ -21,7 +21,7 @@ public class ServicesController {
     private ServicesService servicesService;
 
     @RequestMapping(value = "/all")
-    public String Authentication(ModelMap modalMap) {
+    public String viewAllServices(ModelMap modalMap) {
 
         logger.debug("services controller");
         modalMap.put("services", servicesService.getAllServices());

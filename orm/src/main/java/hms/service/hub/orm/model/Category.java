@@ -18,8 +18,6 @@ public class Category implements Serializable{
 
     private static final long serialVersionUID = 1927554625278436381L;
 
-    public Category(){}
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -43,4 +41,6 @@ public class Category implements Serializable{
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
+
+
 }
