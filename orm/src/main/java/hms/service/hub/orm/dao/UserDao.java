@@ -11,6 +11,8 @@ public interface UserDao extends UniversalDao<User> {
 
     User findUserById(long id);
 
+    User findUserByName(String name);
+
     List<User> findAllUsers();
 
     List<User> findAllActiveUsers();

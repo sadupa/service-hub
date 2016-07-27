@@ -51,7 +51,7 @@
 <body>
 <t:header/>
 <t:menu/>
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 30px;">
     <div class="row">
         <jsp:invoke fragment="page_body"/>
         <jsp:invoke fragment="after_page_body"/>

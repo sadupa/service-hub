@@ -21,7 +21,9 @@
             <div class="button navbar-right">
                 <a class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.8s" href="<c:url value="/auth"/>">Login
                 </a>
-                <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.6s">Sign up</button>
+                <c:if test="${!isSignUpPage}">
+                    <a class="navbar-btn nav-button wow fadeInRight sign-up-button" data-wow-delay="0.6s" href="<c:url value="/register/"/>">Sign up</a>
+                </c:if>
             </div>
             <ul class="main-nav nav navbar-nav navbar-right">
                 <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="#">Home</a></li>
