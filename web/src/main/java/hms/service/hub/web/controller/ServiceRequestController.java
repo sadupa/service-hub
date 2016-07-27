@@ -9,12 +9,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-public class PostServiceRequestController {
+public class ServiceRequestController {
 
     @RequestMapping(value = "/postRequest", method = RequestMethod.GET)
     public String requestForm(Model model) {
         model.addAttribute("postRequest", new ServiceRequest());
         return "postRequest";
+    }
+
+    @RequestMapping(value = "/postRequest", method = RequestMethod.POST)
+    public String requestFormSubmit(@ModelAttribute ServiceRequest serviceRequest, Model model) {
+        model.addAttribute("PostRequest", serviceRequest);
+        return "result";
     }
 
 }

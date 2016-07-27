@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -41,6 +42,7 @@ public class ServiceRequest implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToMany
     @JoinTable(name = "service_tag", joinColumns = {
             @JoinColumn(name = "service_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "tag_id", nullable = false)})
