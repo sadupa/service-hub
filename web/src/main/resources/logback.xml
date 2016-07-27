@@ -104,7 +104,7 @@
     <logger name="mysql" level="DEBUG">
         <level value="OFF"/>
     </logger>
-    <logger name="com.mchange.v2.c3p0" level="DEBUG">
+    <logger name="com.mchange.v2" level="DEBUG">
         <level value="OFF"/>
     </logger>
 

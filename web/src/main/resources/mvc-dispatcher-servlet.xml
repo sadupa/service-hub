@@ -14,7 +14,7 @@
 
     <mvc:annotation-driven/>
     <context:annotation-config/>
-    <context:component-scan base-package="hms.service.hub.web"/>
+    <context:component-scan base-package="hms.service.hub"/>
     <context:property-placeholder location="classpath:system.properties" ignore-resource-not-found="true"
                                   ignore-unresolvable="true"/>
 

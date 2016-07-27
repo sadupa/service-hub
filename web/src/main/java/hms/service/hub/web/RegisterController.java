@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class RegisterController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getRegisterPage() {
