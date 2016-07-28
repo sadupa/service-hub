@@ -29,7 +29,6 @@
 
 
      <div class="container">
-         <h3 class="text-primary"> Services</h3>
 
              <%--<table id="table"--%>
              <%--data-toggle="table"--%>
@@ -64,13 +63,14 @@
 
              <c:forEach items="${services}" var="services" varStatus="q1">
 
-                 <div class="col-md-4">
+                 <div class="col-sm-4">
                      <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
-                         <img src="<c:url value="/images/job-logo${services.id}.png"/>" alt="">
+                         <img src="<c:url value="/images/job-logo${services.imageId}.png"/>" alt="">
                          <h3>${services.title}</h3>
                          <h4>${services.category.name}</h4>
                          <p><i class="icon-location"></i>${services.area.name}</p>
                          <p>${services.description}</p>
+                         <a type="button" class="btn btn-success btn-xs" href="<c:url value="/services/view?id=${services.id}"/>"">Read more</a>
                      </div>
                  </div>
 

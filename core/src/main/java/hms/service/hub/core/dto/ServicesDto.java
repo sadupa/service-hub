@@ -2,8 +2,11 @@ package hms.service.hub.core.dto;
 
 import hms.service.hub.orm.model.Area;
 import hms.service.hub.orm.model.Category;
+import hms.service.hub.orm.model.Tag;
 import hms.service.hub.orm.model.User;
+
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by interview on 7/28/16.
@@ -11,6 +14,7 @@ import java.util.Date;
 public class ServicesDto {
 
     private Long id;
+    private Long imageId;
     private String title;
     private String description;
     private Date createdDate;
@@ -18,9 +22,11 @@ public class ServicesDto {
     private Category category;
     private Area area;
     private User user;
+    private List<Tag> tags;
 
-    public ServicesDto(Long id, String title, String description, Date createdDate, String status, Category category, Area area, User user) {
+    public ServicesDto(Long id, Long imageId, String title, String description, Date createdDate, String status, Category category, Area area, User user, List<Tag> tags) {
         this.id = id;
+        this.imageId = imageId;
         this.title = title;
         this.description = description;
         this.createdDate = createdDate;
@@ -28,6 +34,7 @@ public class ServicesDto {
         this.category = category;
         this.area = area;
         this.user = user;
+        this.tags = tags;
     }
 
     public Long getId() {
@@ -92,5 +99,21 @@ public class ServicesDto {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Long getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(Long imageId) {
+        this.imageId = imageId;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 }
