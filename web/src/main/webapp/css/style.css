@@ -443,8 +443,6 @@ background-color: #00aeef;
 	background: #F4FFFF
 }
 .table tr:hover{
-	background: #00AEEF;
-	color: #fff
 }
 
 .more-jobs{
@@ -516,7 +514,7 @@ background-color: #00aeef;
   border-radius: 2px;
   color: #fff;
   padding: 20px 30px;
-  width: 800px;
+  width: 700px;
 }
 .client-text p {
   line-height: 30px;
