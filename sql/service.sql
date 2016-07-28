@@ -1,0 +1,3 @@
+INSERT INTO hms_service_hub.service (id, created_date, description, status, title, area_id, category_id, user_id) VALUES (1, '2016-07-07 00:00:00', 'Need a professional wedding photographer around Kandy. ', 'status', 'Need a photographer', 1, 1, 1);
+INSERT INTO hms_service_hub.service (id, created_date, description, status, title, area_id, category_id, user_id) VALUES (3, '2016-07-08 00:00:00', 'AC cab needed to travel Jaffna from Colombo. 3 nights. 5 people. ', 'status 3', 'AC cab needed', 3, 3, 1);
+INSERT INTO hms_service_hub.service (id, created_date, description, status, title, area_id, category_id, user_id) VALUES (4, '2016-07-08 00:00:00', 'Need a good catering service for a wedding. For 250 people. ', 'status 4', 'Need a good catering service ', 2, 4, 1);
