@@ -34,11 +34,12 @@ public class ProfileController {
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String getProfilePage(ModelMap modelMap) {
-        User user = getCurrectUser();
-        if (user != null) {
-            modelMap.put("user", user);
+        User user = getCurrentUser();
+        if (user == null) {
+            return "redirect:/auth";
         }
-        return "profile";
+        modelMap.put("user", user);
+        return "createProfile";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -55,12 +56,29 @@ public class ProfileController {
         }
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String viewProfile(ModelMap modelMap) {
+        try {
+            User user = getCurrentUser();
+            if (user == null) {
+                //return "redirect:/auth";
+                user = userService.getUserById(1);
+            }
+            Profile profile = profileService.getProfileByUser(user);
+            modelMap.put("profile", profile);
+            return "viewProfile";
+        } catch (Exception e) {
+            logger.error("error occurred", e);
+            return "redirect:/home";
+        }
+    }
+
     private void addRedirectAttr(RedirectAttributes redirectAttributes, String css, String msg) {
         redirectAttributes.addFlashAttribute("css", css);
         redirectAttributes.addFlashAttribute("msg", msg);
     }
 
-    private User getCurrectUser() {
+    private User getCurrentUser() {
         Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println(obj.toString());
         if (!(obj instanceof org.springframework.security.core.userdetails.User)) {
