@@ -43,7 +43,7 @@
           <div class="container">
               <div class="row page-title wow bounce animated" data-wow-delay="1s"
                    style="visibility: visible; animation-delay: 1s; animation-name: bounce;">
-                  <div class="col-md-8"><h2 style="color: #00AEEF">Profile<a href=""><span class="glyphicon glyphicon-edit"></span></a></h2></div>
+                  <div class="col-md-8"><h2 style="color: #00AEEF">Profile</h2></div>
               </div>
 
               <div class="row">
