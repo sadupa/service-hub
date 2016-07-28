@@ -20,7 +20,7 @@ public class Feedback implements Serializable{
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "service_request_id")
     private ServiceRequest serviceRequest;
 
