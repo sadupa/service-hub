@@ -95,7 +95,7 @@ public class ServiceController {
 
         List<ServicesDto> servicesDtos = new ArrayList<>();
         for (Service services : servicesService.getAllServices()) {
-            servicesDtos.add(new ServicesDto(services.getId(), (long) (rand.nextInt(5) + 1), services.getTitle(), services.getDescription().substring(0,50) + "...", services.getCreatedDate(), services.getStatus(), services.getCategory(), services.getArea(), services.getUser(), services.getTags()));
+            servicesDtos.add(new ServicesDto(services.getId(), (long) (rand.nextInt(5) + 1), services.getTitle(), getFirstFifty(services.getDescription()), services.getCreatedDate(), services.getStatus(), services.getCategory(), services.getArea(), services.getUser(), services.getTags()));
         }
         modalMap.put("services", servicesDtos);
         return "view_services";
@@ -110,6 +110,14 @@ public class ServiceController {
         ServicesDto servicesDto = new ServicesDto(service.getId(), (long) (rand.nextInt(5) + 1), service.getTitle(), service.getDescription(), service.getCreatedDate(), service.getStatus(), service.getCategory(), service.getArea(), service.getUser(), service.getTags());
         modalMap.put("service", servicesDto);
         return "view_single_service";
+    }
+
+    public String getFirstFifty(String input ){
+        if(input.length() > 50){
+            return input.substring(0,50);
+        }else {
+            return input;
+        }
     }
 
 }
