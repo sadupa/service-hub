@@ -48,7 +48,7 @@ public class ServiceRequestController {
     @Autowired
     private BidService bidService;
 
-
+    Random rand = new Random();
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String requestForm(Model model) {
 
@@ -80,7 +80,6 @@ public class ServiceRequestController {
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String viewServiceRequests(@RequestParam("area") long area, @RequestParam("category") long category,
                                       @RequestParam("keyword") String keyword,ModelMap model) {
-        Random rand = new Random();
         List<Area> areas = areaService.getAllArea();
         List<Category> categories = categoryService.getAllCategory();
         List<ServiceRequest> serviceRequests = serviceRequestService.getServiceRequest(area, category, keyword);
@@ -108,7 +107,7 @@ public class ServiceRequestController {
 
     @RequestMapping(value = "/bid-service",method = RequestMethod.GET)
     public String getServiceRequestBidView(@RequestParam("id") long id,ModelMap model){
-        Random rand = new Random();
+
 
         ServiceRequest serviceRequestToAdd = serviceRequestService.getServiceRequestById(id);
         List<ServiceRequest> serviceRequests = new ArrayList<>();

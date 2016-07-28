@@ -48,17 +48,21 @@
              <c:forEach items="${bid}" var="bid" varStatus="status">
                  <tr>
                      <div class="item">
-                         <td>
+                         <td style="width: 60px">
                              <div class="client-face">
                                  <img src="<c:url value="/images/client-face${bid.random}.png"/>" alt="">
                              </div>
                          </td>
-                         <td>
+                         <td style="width: 700px">
                              <div class="client-text">
-                                 <h4><strong>${bid.user}, </strong><i>Rs: ${bid.amount}</i></h4>
+                                 <h4><strong>${bid.user}, </strong><i class="pull-right" style="font-size: 16px">Rs: ${bid.amount}</i></h4>
 
                                  <p>${bid.description}</p>
                              </div>
+                         </td>
+                         <td>
+                            <h4>Reputation:<br><strong style="font-size: 25px">3.0</strong><strong style="font-size: 12px">/5</strong></h4>
+                             <br> <div class="ui star rating" data-rating="3"></div>
                          </td>
                      </div>
                  </tr>
@@ -77,6 +81,16 @@
     </jsp:attribute>
 
     <jsp:attribute name="js_inline">
-
+        <script type="text/javascript">
+            $('.ui.rating')
+                    .rating({
+                        initialRating: 3,
+                        maxRating: 5
+                    })
+            ;
+            $('.ui.rating')
+                    .rating('disable')
+            ;
+        </script>
     </jsp:attribute>
 </t:wrapper>
