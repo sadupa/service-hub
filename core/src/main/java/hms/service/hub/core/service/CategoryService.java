@@ -8,6 +8,6 @@ import java.util.List;
  * Created by chathura on 7/27/16.
  */
 public interface CategoryService {
-
+    //todo make this getAllCategories
     List<Category> getAllCategory();
 }

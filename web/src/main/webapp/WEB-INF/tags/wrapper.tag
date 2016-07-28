@@ -22,7 +22,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="<c:url value="/css/normalize.css"/>" >
+    <link rel="stylesheet" href="<c:url value="/css/normalize.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/font-awesome.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/fontello.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/animate.css"/>">
@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/responsive.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/custom.css"/> ">
+    <link rel="stylesheet" href="<c:url value="/css/semantic.css"/> "/>
+
     <script type="text/javascript" src="<c:url value="/js/vendor/modernizr-2.6.2.min.js"/>"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="<c:url value="/js/vendor/jquery-1.10.2.min.js"/>"></script>
@@ -40,8 +42,7 @@
     <script type="text/javascript" src="<c:url value="/js/owl.carousel.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/js/wow.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/js/main.js"/>"></script>
-
-
+    <script type="text/javascript" src="<c:url value="/js/semantic.min.js" />"></script>
 
     <jsp:invoke fragment="css_file_includes"/>
     <!-- for style tags -->

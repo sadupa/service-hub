@@ -19,7 +19,7 @@ public class CategoryDaoImpl extends UniversalDaoImpl<Category> implements Categ
         Session session = getCurrentSession();
         return session.createCriteria(Category.class)
                 .setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY)
-                .addOrder(Order.asc("categoryName"))
+                .addOrder(Order.asc("name"))
                 .list();
     }
 }

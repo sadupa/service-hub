@@ -37,14 +37,14 @@
                          <div class="form-group">
                              <select name="area" id="citySelect" class="form-control">
                                  <c:forEach items="${area}" var="area" varStatus="status">
-                                     <option value="${area.id}">${area.areaName}</option>
+                                     <option value="${area.id}">${area.name}</option>
                                  </c:forEach>
                              </select>
                          </div>
                          <div class="form-group">
                              <select name="category" id="categorySelect" class="form-control">
                                  <c:forEach items="${category}" var="category" varStatus="status">
-                                     <option value="${category.id}">${category.categoryName}</option>
+                                     <option value="${category.id}">${category.name}</option>
                                  </c:forEach>
                              </select>
                          </div>

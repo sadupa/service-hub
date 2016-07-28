@@ -19,8 +19,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="button navbar-right">
-                <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.8s">Login
-                </button>
+                <a class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.8s" href="<c:url value="/auth"/>">Login
+                </a>
                 <c:if test="${!isSignUpPage}">
                     <a class="navbar-btn nav-button wow fadeInRight sign-up-button" data-wow-delay="0.6s" href="<c:url value="/register/"/>">Sign up</a>
                 </c:if>
@@ -29,9 +29,9 @@
                 <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="#">Home</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#">Job Seekers</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#">Employeers</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#">About us</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="<c:url value="/services/all"/>">Services</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#">Blog</a></li>
-                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#">Contact</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="<c:url value="/profile/create"/>">Profile</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
