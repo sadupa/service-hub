@@ -5,33 +5,21 @@ import hms.service.hub.core.dto.ServiceRequestDto;
 import hms.service.hub.core.service.ServiceRequestService;
 import hms.service.hub.orm.model.ServiceRequest;
 import org.apache.commons.lang3.time.DurationFormatUtils;
-
 import hms.service.hub.core.service.AreaService;
 import hms.service.hub.core.service.CategoryService;
 import hms.service.hub.core.service.TagService;
 import hms.service.hub.orm.model.Area;
 import hms.service.hub.orm.model.Category;
-import hms.service.hub.orm.model.ServiceRequest;
 import hms.service.hub.orm.model.Tag;
-import hms.service.hub.orm.model.User;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
-
-
-import javax.servlet.http.HttpServletRequest;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -65,8 +53,10 @@ public class ServiceRequestController {
     }
 
     @RequestMapping(value = "/submitPostRequest", method = RequestMethod.POST)
-    public String requestFormSubmit(@RequestParam("title") String title, @RequestParam("category") long category, @RequestParam
-            ("area") long area, @RequestParam("description") String description, @RequestParam("tags") List<Long> tags) {
+    public String requestFormSubmit(@RequestParam("title") String title, @RequestParam("category") long category,
+                                    @RequestParam
+            ("area") long area, @RequestParam("description") String description, @RequestParam("tags") List<Long>
+                                                tags) {
 
 
         return "postRequest";

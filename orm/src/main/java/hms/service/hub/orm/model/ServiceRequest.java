@@ -50,7 +50,7 @@ public class ServiceRequest implements Serializable {
     private User user;
 
     @ManyToMany
-    @JoinTable(name = "service_tag", joinColumns = {
+    @JoinTable(name = "service_request_tag", joinColumns = {
             @JoinColumn(name = "service_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "tag_id", nullable = false)})
     private List<Tag> tags;
