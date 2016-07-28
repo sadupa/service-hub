@@ -30,7 +30,7 @@
                      Service-Hub then generates the request and sends it out to the closest service-providers in your vicinity.</p>
 
                  <div class="search-form wow pulse" data-wow-delay="0.8s">
-                     <form action="<c:url value='/view'/>" class=" form-inline"  method="GET" >
+                     <form action="<c:url value='/postRequest/view'/>" class=" form-inline"  method="GET" >
                          <div class="form-group">
                              <input type="text" class="form-control" placeholder="Job Key Word" name="keyword">
                          </div>
@@ -237,7 +237,7 @@
                          <table class="table">
                              <c:forEach items="${service}" var="service" varStatus="status">
                                  <tr class="odd wow fadeInUp" data-wow-delay="1s">
-                                     <td class="tbl-logo"><img src="<c:url value="images/job-logo${service.id}.png"/>" alt=""></td>
+                                     <td class="tbl-logo"><img src="<c:url value="images/job-logo${service.random}.png"/>" alt=""></td>
                                      <td class="tbl-title"><h4>${service.title}
                                          <br><span class="job-type">${service.createdOn}</span>
                                      </h4></td>

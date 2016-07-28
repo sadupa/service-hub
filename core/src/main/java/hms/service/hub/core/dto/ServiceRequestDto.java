@@ -8,6 +8,7 @@ import java.util.Date;
 public class ServiceRequestDto {
 
     public long id;
+    public int random;
     public String title;
     public String description;
     public String area;
@@ -16,8 +17,9 @@ public class ServiceRequestDto {
     public ServiceRequestDto() {
     }
 
-    public ServiceRequestDto(long id, String title, String description, String area, String createdOn) {
+    public ServiceRequestDto(long id, int random, String title, String description, String area, String createdOn) {
         this.id = id;
+        this.random = random;
         this.title = title;
         this.description = description;
         this.area = area;
@@ -30,6 +32,14 @@ public class ServiceRequestDto {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getRandom() {
+        return random;
+    }
+
+    public void setRandom(int random) {
+        this.random = random;
     }
 
     public String getTitle() {

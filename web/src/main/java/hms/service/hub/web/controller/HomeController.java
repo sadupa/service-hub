@@ -46,8 +46,8 @@ public class HomeController {
 
         List<ServiceRequestDto> serviceRequestDtos = new ArrayList<>();
         for (ServiceRequest serviceRequest : serviceRequests) {
-            serviceRequestDtos.add(new ServiceRequestDto(rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
-                    DurationFormatUtils.formatDurationWords(new Date().getTime() - serviceRequest.getCreatedDate().getTime(), true, false)));
+            serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                    DurationFormatUtils.formatDurationWords(new Date().getTime() - serviceRequest.getCreatedDate().getTime(), true, false)+" ago"));
         }
 
         model.put("area",areas);

@@ -3,3 +3,17 @@ html{
     width: 100%;
     overflow-x: hidden;
 }
+
+.btn-custom{
+    background: #00AEEF;
+    color: #fff;
+    height: 40px;
+    width: 90px;
+    border-radius: 1px;
+    font-size: 16px;
+    border-radius: 2px;
+}
+
+.btn-custom:hover{
+    color:#428bca;
+}

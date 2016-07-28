@@ -32,6 +32,10 @@ public class Bid implements Serializable{
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @OneToOne
+    @JoinColumn(name = "request_id",nullable = false)
+    private ServiceRequest serviceRequest;
+
     @Column(name = "amount", nullable = false)
     private double amount;
 
@@ -63,6 +67,14 @@ public class Bid implements Serializable{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public ServiceRequest getServiceRequest() {
+        return serviceRequest;
+    }
+
+    public void setServiceRequest(ServiceRequest serviceRequest) {
+        this.serviceRequest = serviceRequest;
     }
 
     public String getDescription() {
