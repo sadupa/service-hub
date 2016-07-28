@@ -1,14 +1,6 @@
 package hms.service.hub.orm.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -19,8 +11,6 @@ import java.io.Serializable;
 public class Profile implements Serializable{
 
     private static final long serialVersionUID = 1927557244205936381L;
-
-    public Profile(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,11 +30,11 @@ public class Profile implements Serializable{
     @JoinColumn(name = "user_id")
     private User user;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,20 +46,20 @@ public class Profile implements Serializable{
         this.name = name;
     }
 
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
     public String getMobileNo() {
         return mobileNo;
     }
 
     public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setProfileSummary(String summary) {
-        this.summary = summary;
     }
 
     public User getUser() {
@@ -79,5 +69,4 @@ public class Profile implements Serializable{
     public void setUser(User user) {
         this.user = user;
     }
-
 }

@@ -34,10 +34,7 @@ public class ProfileController {
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String getProfilePage(ModelMap modelMap) {
-        User user = getCurrentUser();
-        if (user == null) {
-            return "redirect:/auth";
-        }
+        User user = userService.getUserById(1);
         modelMap.put("user", user);
         return "createProfile";
     }
@@ -46,25 +43,27 @@ public class ProfileController {
     public String saveProfile(@ModelAttribute Profile profile, RedirectAttributes redirectAttributes) {
 
         try {
+            User user = userService.getUserById(1);
+            profile.setUser(user);
             profileService.createProfile(profile);
-            addRedirectAttr(redirectAttributes, CSS_SUCCESS, "Registration success");
-            return "redirect:/";
+            addRedirectAttr(redirectAttributes, CSS_SUCCESS, "Profile created");
+            return "redirect:/profile/";
         } catch (Exception e) {
             logger.error("error occurred", e);
             addRedirectAttr(redirectAttributes, CSS_DANGER, "Error occurred");
-            return "redirect:/register/";
+            return "redirect:/profile/create";
         }
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String viewProfile(ModelMap modelMap) {
         try {
-            User user = getCurrentUser();
-            if (user == null) {
-                //return "redirect:/auth";
-                user = userService.getUserById(1);
-            }
+            User user = userService.getUserById(1);
             Profile profile = profileService.getProfileByUser(user);
+            if (profile == null) {
+                return "redirect:/profile/create";
+            }
+            modelMap.put("user", user);
             modelMap.put("profile", profile);
             return "viewProfile";
         } catch (Exception e) {

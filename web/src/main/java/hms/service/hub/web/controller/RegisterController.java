@@ -54,15 +54,14 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/user/save", method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute User user, RedirectAttributes redirectAttributes,
-                           HttpServletRequest request) {
+    public String saveUser(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
 
         try {
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             user.setRole(roleService.getRoleById(1));
             userService.createUser(user);
             addRedirectAttr(redirectAttributes, CSS_SUCCESS, "Registration success");
-            return "redirect:/auth";
+            return "redirect:/login";
         } catch (Exception e) {
             logger.error("error occurred", e);
             addRedirectAttr(redirectAttributes, CSS_DANGER, "Error occurred");

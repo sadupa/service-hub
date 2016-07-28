@@ -20,47 +20,49 @@
 
     <jsp:attribute name="page_body">
 
-        <div style="background-color: #e6e6e6;">
           <div class="container">
-            <div class="row">
-              <div class="col-md-10" style="padding: 10px 0 50px 0">
+              <div class="row">
+                  <div class="col-md-6" style="padding: 10px 0 50px 0">
 
-                <c:if test="${msg != null}">
-                  <div class="alert alert-${css} alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert">
-                      <span aria-hidden="true">&times;</span>
-                      <span class="sr-only">Close</span>
-                    </button>
-                    <strong> ${msg} </strong>
+                      <c:if test="${msg != null}">
+                          <div class="alert alert-${css} alert-dismissible" role="alert">
+                              <button type="button" class="close" data-dismiss="alert">
+                                  <span aria-hidden="true">&times;</span>
+                                  <span class="sr-only">Close</span>
+                              </button>
+                              <strong> ${msg} </strong>
+                          </div>
+                      </c:if>
+
+                      <h2 style="color: #00AEEF">Profile</h2>
+
+                      <form role="form" action="<c:url value="/profile/save"/>" method="post">
+                          <div class="form-group">
+                              <label for="txtName">Username</label>
+                              <input type="text" class="form-control" id="txtUName" value="${user.name}" readonly/>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="txtName">Name</label>
+                              <input type="text" class="form-control" id="txtName" name="name"/>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="txtName">Summery</label>
+                              <textarea class="form-control" name="summary" rows="5" id="summary"></textarea>
+                          </div>
+
+                      <div class="form-group">
+                          <label for="mobileNo">Mobile No</label>
+                          <input type="text" class="form-control" id="mobileNo" name="mobileNo"/>
+                      </div>
+
+                          <button type="submit" class="btn btn-theme">Save</button>
+                      </form>
+
                   </div>
-                </c:if>
-
-                <h2 style="color: #00AEEF">Profile</h2>
-                <form role="form" action="<c:url value="/profile/save"/>" method="post">
-                  <div class="form-group">
-                    <label for="txtName">Profle Name</label>
-                    <input type="text" class="form-control" id="txtName" name="name"/>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="txtName">Summery</label>
-                    <textarea class="form-control" id="txtEmail" name="summary" rows="5" id="summary"></textarea>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="mobileNo">Mobile No</label>
-                    <input type="tel" class="form-control" id="mobileNo" name="mobileNo"/>
-                  </div>
-
-                  <input type="hidden" name="user" value="${user.id}"/>
-
-                  <button type="submit" class="btn btn-sign-up">Save</button>
-                </form>
-
               </div>
-            </div>
           </div>
-        </div>
 
      </jsp:attribute>
 

@@ -20,10 +20,14 @@
 
     <jsp:attribute name="page_body">
 
-        <div style="background-color: #e6e6e6;background: -webkit-linear-gradient(#ffd1d1, #fdffed);background: -o-linear-gradient(#ffd1d1, #fdffed);background: -moz-linear-gradient(#ffd1d1, #fdffed);background: linear-gradient(#ffd1d1, #fdffed);">
+        <div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10" style="padding: 10px 0 50px 0">
+                    <div class="col-md-9">
+                        <img src="<c:url value="/images/reg_page_banner.png"/>" class="img-responsive">
+                    </div>
+
+                    <div class="col-md-3" style="padding: 10px 0 50px 0; color: #92A1AE!important;">
 
                         <c:if test="${msg != null}">
                             <div class="alert alert-${css} alert-dismissible" role="alert">
@@ -35,21 +39,21 @@
                             </div>
                         </c:if>
 
-                        <h2 style="color: #00AEEF">Register</h2>
+                        <h2>Sign Up</h2>
                         <form role="form" action="<c:url value="/register/user/save"/>" method="post">
                             <div class="form-group">
                                 <label for="txtName">Name</label>
-                                <input type="text" class="form-control" id="txtName" name="name">
+                                <input type="text" class="form-control" id="txtName" name="name" required="required">
                             </div>
 
                             <div class="form-group">
                                 <label for="txtName">Email</label>
-                                <input type="email" class="form-control" id="txtEmail" name="email">
+                                <input type="email" class="form-control" id="txtEmail" name="email" required="required">
                             </div>
 
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" name="password" required="required">
                             </div>
 
                             <div class="form-group">

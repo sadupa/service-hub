@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by parinda on 7/27/16.
  */
-
 @Controller
 public class LoginController {
 
@@ -21,21 +20,11 @@ public class LoginController {
     @RequestMapping(value = "login")
     public String Authentication() {
 
-        logger.debug("login controller");
-
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
-            logger.debug("user logged!");
+            logger.debug("{} logged", auth.getName());
             return "redirect:/home";
         }
-
-        return "redirect:/auth";
-    }
-
-    @RequestMapping(value = "auth")
-    public String loginPage() {
-
-        logger.debug("login controller");
         return "login";
     }
 

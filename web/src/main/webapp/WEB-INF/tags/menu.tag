@@ -33,7 +33,7 @@
                     Service</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="<c:url value="/services/all"/>">Services</a>
                 </li>
-                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="<c:url value="/profile/create"/>">Profile</a>
+                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="<c:url value="/profile/"/>">Profile</a>
                 </li>
             </ul>
         </div>

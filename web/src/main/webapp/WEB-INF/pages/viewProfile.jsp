@@ -19,18 +19,76 @@
     </jsp:attribute>
 
     <jsp:attribute name="page_body">
-
-        <div style="background-color: #e6e6e6;">
+        <style>
+            .page-title {
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+            .page-content h5 {
+                text-transform: none;
+                text-decoration: none;
+            }
+            .page-content {
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+            .container {
+                padding-top: 15px;
+                padding-bottom: 30px;
+            }
+            .page-content:hover {
+                background-color: #f3f6f5;
+            }
+        </style>
           <div class="container">
+              <div class="row page-title wow bounce animated" data-wow-delay="1s"
+                   style="visibility: visible; animation-delay: 1s; animation-name: bounce;">
+                  <div class="col-md-8"><h2 style="color: #00AEEF">Profile<a href=""><span class="glyphicon glyphicon-edit"></span></a></h2></div>
+              </div>
 
-              <h2 style="color: #00AEEF">Profile</h2>
+              <div class="row">
 
-              <div class="form-group">
-                  <label>Profile Name</label>
-                  <p class="form-control-static">${profile.name}test</p>
+                  <div class="col-md-6">
+
+                      <div class="row page-content wow bounce animated" data-wow-delay="1s"
+                           style="visibility: visible; animation-delay: 1s; animation-name: bounce;">
+                          <div class="col-md-5"><h5>Name</h5></div>
+
+                          <div class="col-md-7"><h5><span>${profile.name}</span></h5></div>
+                      </div>
+
+                      <div class="row page-content wow bounce animated" data-wow-delay="1s"
+                           style="visibility: visible; animation-delay: 1s; animation-name: bounce;">
+                          <div class="col-md-5"><h5>UserName</h5></div>
+
+
+                          <div class="col-md-7"><h5><span>${user.name}</span></h5></div>
+                      </div>
+
+                      <div class="row page-content wow bounce animated" data-wow-delay="1s"
+                           style="visibility: visible; animation-delay: 1s; animation-name: bounce;">
+                          <div class="col-md-5"><h5>Mobile No</h5></div>
+
+                          <div class="col-md-7"><h5><span>${profile.mobileNo}</span></h5></div>
+                      </div>
+
+                      <div class="row page-content wow bounce animated" data-wow-delay="1s"
+                           style="visibility: visible; animation-delay: 1s; animation-name: bounce;">
+                          <div class="col-md-5"><h5>Summary</h5></div>
+
+                          <div class="col-md-7"><h5><span>${profile.summary}</span></h5></div>
+                      </div>
+
+                  </div>
+
+                  <div class="col-md-6">
+                      <div class="pull-right">
+                          <img src="<c:url value="/images/team-small-2.jpg"/>" class="img-responsive"/>
+                      </div>
+                  </div>
+
               </div>
           </div>
-        </div>
 
      </jsp:attribute>
 

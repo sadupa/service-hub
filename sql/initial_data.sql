@@ -33,6 +33,8 @@ INSERT INTO role (id, name) VALUES (1, 'USER1');
 
 INSERT INTO role_permission (role_id, permission_id) VALUES (1, 1);
 
+INSERT INTO user (id, email, enabled, username, password, status, role_id) VALUES (1, 'test@hsenid.com', 1, 'test_user', '12345', 'ACTIVE', 1);
+
 INSERT INTO `tag` (`id`, `name`, `category`) VALUES
   (1, 'Wedding Photography', 1),
   (2, 'Event Photography', 1);
