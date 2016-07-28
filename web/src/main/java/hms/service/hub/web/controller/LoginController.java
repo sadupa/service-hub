@@ -2,9 +2,6 @@ package hms.service.hub.web.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +17,11 @@ public class LoginController {
     @RequestMapping(value = "login")
     public String Authentication() {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (!(auth instanceof AnonymousAuthenticationToken)) {
+        //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        /*if (!(auth instanceof AnonymousAuthenticationToken)) {
             logger.debug("{} logged", auth.getName());
             return "redirect:/home";
-        }
+        }*/
         return "login";
     }
 

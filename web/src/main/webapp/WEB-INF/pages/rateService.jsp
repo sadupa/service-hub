@@ -58,97 +58,65 @@
                   <c:otherwise>
                       <div class="box">
                           <div class="row description">
-                              <div class="col-md-6"><h5>quality of Work</h5></div>
-                              <div class="col-md-6">
-                                  <div class="pull-right" style="padding-right: 50px;">
-                                      <div class="ui star rating" data-rating="3" id="q"></div>
-                                  </div>
+                              <div class="col-md-10">
+                                  <dl>
+                                      <dt>quality of Work</dt>
+                                      <dd>Job standards determine the expected quality of work and quantity of tasks performed,
+                                          related
+                                          to a specific position.
+                                      </dd>
+                                  </dl>
                               </div>
-
-                              <div class="col-md-8">
-                                  <p>Job standards determine the expected quality of work and quantity of tasks performed,
-                                      related
-                                      to a specific position. Small businesses monitor an employee's job performance by
-                                      comparing it
-                                      to accepted work measurements, often at various intervals. Besides evaluation of
-                                      production,
-                                      these demonstrations provide employers with opportunities to refresh a worker's job skills
-                                      or
-                                      address behavioral factors.</p>
-                              </div>
-                          </div>
-                      </div>
-
-
-                      <div class="box">
-                          <div class="row description">
-                              <div class="col-md-6"><h5>Communication</h5></div>
-                              <div class="col-md-6">
-                                  <div class="pull-right" style="padding-right: 50px;">
-                                      <div class="ui star rating" data-rating="3" id="c"></div>
-                                  </div>
-                              </div>
-
-                              <div class="col-md-8">
-                                  <p>Two-way process of reaching mutual understanding, in which participants not only exchange
-                                      (encode-decode) information, news, ideas and feelings but also create and share meaning.
-                                      In general, communication is a means of connecting people or places. In business, it is a
-                                      key function of management--an organization cannot operate without communication between
-                                      levels, departments and employees. See also communications.</p>
+                              <div class="col-md-2">
+                                  <div class="ui star rating" data-rating="3" id="q"></div>
                               </div>
                           </div>
                       </div>
 
                       <div class="box">
                           <div class="row description">
-                              <div class="col-md-6"><h5>Expertise</h5></div>
-                              <div class="col-md-6">
-                                  <div class="pull-right" style="padding-right: 50px;">
-                                      <div class="ui star rating" data-rating="3" id="e"></div>
-                                  </div>
+                              <div class="col-md-10">
+                                  <dl>
+                                      <dt>Communication</dt>
+                                      <dd>Two-way process of reaching mutual understanding, in which participants not only exchange
+                                          (encode-decode) information, news, ideas and feelings but also create and share meaning.
+                                      </dd>
+                                  </dl>
                               </div>
-
-                              <div class="col-md-8">
-                                  <p>Basis of credibility of a person who is perceived to be knowledgeable in an area or topic
-                                      due to his or her study, training, or experience in the subject matter. The chef
-                                      demonstrated his expertise in cooking to the group by showing them step by step methods of
-                                      preparing various food dishes and allowing them to taste the finished products.
-                                  </p>
+                              <div class="col-md-2">
+                                  <div class="ui star rating" data-rating="3" id="c"></div>
                               </div>
                           </div>
                       </div>
 
                       <div class="box">
                           <div class="row description">
-                              <div class="col-md-6"><h5>Would Hire Again</h5></div>
-                              <div class="col-md-6">
-                                  <div class="pull-right" style="padding-right: 50px;">
-                                      <div class="ui star rating" data-rating="3" id="a"></div>
-                                  </div>
+                              <div class="col-md-10">
+                                  <dl>
+                                      <dt>Expertise</dt>
+                                      <dd>Basis of credibility of a person who is perceived to be knowledgeable in an area or topic
+                                          due to his or her study, training, or experience in the subject matter.
+                                      </dd>
+                                  </dl>
                               </div>
-
-                              <div class="col-md-8">
-                                  <p>If you’re assuming that a tight job market means that an employer doesn’t have to exert
-                                      much effort to fill its open positions, think again.Knowing how to “hire smart” is a must
-                                      for any employer, no matter what the economy looks like.</p>
+                              <div class="col-md-2">
+                                  <div class="ui star rating" data-rating="3" id="e"></div>
                               </div>
                           </div>
                       </div>
 
                       <div class="box">
                           <div class="row description">
-                              <div class="col-md-6"><h5>Professionalism</h5></div>
-                              <div class="col-md-6">
-                                  <div class="pull-right" style="padding-right: 50px;">
-                                      <div class="ui star rating" data-rating="3" id="p"></div>
-                                  </div>
+                              <div class="col-md-10">
+                                  <dl>
+                                      <dt>Would Hire Again</dt>
+                                      <dd>If you’re assuming that a tight job market means that an employer doesn’t have to exert
+                                          much effort to fill its open positions
+                                      </dd>
+                                  </dl>
                               </div>
-
-                              <div class="col-md-8">
-                                  <p>For writers such as Alexander Pope and Samuel Johnson, struggling in the transition from
-                                      the age of patronage to that of Grub Street professionalism, Shakespeare offered not only
-                                      a body of poetic invention but also an inspirational career trajectory. —Jonathan Bate,
-                                      Harper's, April 2007</p>
+                              <div class="col-md-2">
+                                  <div class="ui star rating" data-rating="3" id="a"></div>
                               </div>
                           </div>
                       </div>
@@ -159,12 +127,7 @@
                                   <dl>
                                       <dt>Professionalism</dt>
                                       <dd>For writers such as Alexander Pope and Samuel Johnson, struggling in the
-                                          transition from
-                                          the age of patronage to that of Grub Street professionalism, Shakespeare
-                                          offered not only
-                                          a body of poetic invention but also an inspirational career trajectory.
-                                          —Jonathan Bate,
-                                          Harper's, April 2007
+                                          transition
                                       </dd>
                                   </dl>
                               </div>

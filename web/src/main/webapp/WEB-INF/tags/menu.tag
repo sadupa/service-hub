@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="button navbar-right">
                 <a class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.8s"
-                   href="<c:url value="/auth"/>">Login
+                   href="<c:url value="/login"/>">Login
                 </a>
                 <c:if test="${!isSignUpPage}">
                     <a class="navbar-btn nav-button wow fadeInRight sign-up-button" data-wow-delay="0.6s"
