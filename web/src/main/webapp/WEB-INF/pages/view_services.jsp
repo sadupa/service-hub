@@ -67,7 +67,6 @@
                  <div class="col-md-4">
                      <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
                          <img src="<c:url value="/images/job-logo${services.id}.png"/>" alt="">
-
                          <h3>${services.title}</h3>
                          <h4>${services.category.name}</h4>
                          <p><i class="icon-location"></i>${services.area.name}</p>

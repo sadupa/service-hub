@@ -72,7 +72,7 @@ public class ServiceController {
 
         List<ServicesDto> servicesDtos = new ArrayList<>();
         for (Service services : servicesService.getAllServices()) {
-            servicesDtos.add(new ServicesDto((long) (rand.nextInt(5) + 1), services.getTitle(), services.getDescription(), services.getCreatedDate(), services.getStatus(), services.getCategory(), services.getArea(), services.getUser()));
+            servicesDtos.add(new ServicesDto((long) (rand.nextInt(5) + 1), services.getTitle(), services.getDescription().substring(0,50) + "...", services.getCreatedDate(), services.getStatus(), services.getCategory(), services.getArea(), services.getUser()));
         }
         modalMap.put("services", servicesDtos);
         return "view_services";
