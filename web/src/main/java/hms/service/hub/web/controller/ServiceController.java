@@ -1,12 +1,12 @@
 package hms.service.hub.web.controller;
 
+import hms.service.hub.core.dto.ServiceRequestDto;
+import hms.service.hub.core.dto.ServicesDto;
 import hms.service.hub.core.service.AreaService;
 import hms.service.hub.core.service.CategoryService;
 import hms.service.hub.core.service.ServicesService;
 import hms.service.hub.core.service.TagService;
-import hms.service.hub.orm.model.Area;
-import hms.service.hub.orm.model.Category;
-import hms.service.hub.orm.model.Tag;
+import hms.service.hub.orm.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * (C) Copyright 2016 hSenid Mobile Solutions (Pvt) Limited.
@@ -65,7 +68,13 @@ public class ServiceController {
     @RequestMapping(value = "/all")
     public String viewAllServices(ModelMap modalMap) {
 
-        modalMap.put("services", servicesService.getAllServices());
+        Random rand = new Random();
+
+        List<ServicesDto> servicesDtos = new ArrayList<>();
+        for (Service services : servicesService.getAllServices()) {
+            servicesDtos.add(new ServicesDto((long) (rand.nextInt(5) + 1), services.getTitle(), services.getDescription(), services.getCreatedDate(), services.getStatus(), services.getCategory(), services.getArea(), services.getUser()));
+        }
+        modalMap.put("services", servicesDtos);
         return "view_services";
     }
 }

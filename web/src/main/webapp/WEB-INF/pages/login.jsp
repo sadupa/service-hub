@@ -18,35 +18,12 @@
 
     <jsp:attribute name="page_body">
 
-
      <div class="container">
          <div class="row">
              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-
-                     <%--<div class="login-box">--%>
-                     <%--<form name='loginForm' action="<c:url value='/j_spring_security_check' />" method='POST'>--%>
-                     <%--<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">--%>
-                     <%--<label class="text-danger">--%>
-                     <%--Your login attempt was not successful due to--%>
-                     <%--<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>--%>
-                     <%--</label>--%>
-                     <%--</c:if>--%>
-                     <%--<input id="user_username" class="textbox-login" type="text" name="username"--%>
-                     <%--placeholder="User Name"/>--%>
-                     <%--<input id="user_password" class="textbox-login" type="password" name="password"--%>
-                     <%--placeholder="Password"/><br>--%>
-                     <%--<input id="btn" class="button-login" type="submit" name="submit" value="Submit"/>--%>
-                     <%--</form>--%>
-                     <%--</div>--%>
-
                  <div class="container">
                      <div class="row">
                          <div class="col-sm-6 form-box">
-                             <div class="form-top">
-                                 <div class="form-top-left">
-                                     <h3 class="text-primary">Login</h3>
-                                 </div>
-                             </div>
                              <div class="form-bottom">
                                  <form name='loginForm' action="<c:url value='/j_spring_security_check' />"
                                        method='POST'>

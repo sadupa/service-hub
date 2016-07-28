@@ -31,34 +31,52 @@
      <div class="container">
          <h3 class="text-primary"> Services</h3>
 
-         <table id="table"
-                data-toggle="table"
-                <%--data-filter-control="true"--%>
-                <%--data-filter-show-clear="true"--%>
-                data-search="true"
-                data-side-pagination="client"
-                data-pagination="true">
-             <thead>
-             <tr>
-                 <th data-field="id">ID</th>
-                 <th data-field="title" data-filter-control="input">Title</th>
-                 <th data-field="category" data-filter-control="select">Category</th>
-                 <th data-field="area" data-filter-control="select">Area</th>
-             </tr>
-             </thead>
+             <%--<table id="table"--%>
+             <%--data-toggle="table"--%>
+             <%--&lt;%&ndash;data-filter-control="true"&ndash;%&gt;--%>
+             <%--&lt;%&ndash;data-filter-show-clear="true"&ndash;%&gt;--%>
+             <%--data-search="true"--%>
+             <%--data-side-pagination="client"--%>
+             <%--data-pagination="true">--%>
+             <%--<thead>--%>
+             <%--<tr>--%>
+             <%--<th data-field="id">ID</th>--%>
+             <%--<th data-field="title" data-filter-control="input">Title</th>--%>
+             <%--<th data-field="category" data-filter-control="select">Category</th>--%>
+             <%--<th data-field="area" data-filter-control="select">Area</th>--%>
+             <%--</tr>--%>
+             <%--</thead>--%>
 
-             <tbody>
+             <%--<tbody>--%>
+             <%--<c:forEach items="${services}" var="services" varStatus="q1">--%>
+             <%--<tr>--%>
+             <%--<td class="table-td2">${services.id}</td>--%>
+             <%--<td class="table-td2">${services.title}</td>--%>
+             <%--<td class="table-td2">${services.category.name}</td>--%>
+             <%--<td class="table-td2">${services.area.name}</td>--%>
+             <%--</tr>--%>
+             <%--</c:forEach>--%>
+             <%--</tbody>--%>
+
+             <%--</table>--%>
+
+         <div class="row how-it-work text-center">
+
              <c:forEach items="${services}" var="services" varStatus="q1">
-                 <tr>
-                     <td class="table-td2">${services.id}</td>
-                     <td class="table-td2">${services.title}</td>
-                     <td class="table-td2">${services.category.name}</td>
-                     <td class="table-td2">${services.area.areaName}</td>
-                 </tr>
-             </c:forEach>
-             </tbody>
 
-         </table>
+                 <div class="col-md-4">
+                     <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
+                         <img src="<c:url value="/images/job-logo${services.id}.png"/>" alt="">
+
+                         <h3>${services.title}</h3>
+                         <h4>${services.category.name}</h4>
+                         <p><i class="icon-location"></i>${services.area.name}</p>
+                         <p>${services.description}</p>
+                     </div>
+                 </div>
+
+             </c:forEach>
+         </div>
 
      </div>
 
