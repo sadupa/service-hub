@@ -24,8 +24,8 @@ public class ServicesServiceImpl implements ServicesService {
         return servicesDao.save(service);
     }
 
-    public List<hms.service.hub.orm.model.Service> getAllServices() {
-        return servicesDao.getAllServices();
+    public List<hms.service.hub.orm.model.Service> getAllServices(int getCount) {
+        return servicesDao.getAllServices(getCount);
     }
 
     public hms.service.hub.orm.model.Service getSeriveById(long id) {

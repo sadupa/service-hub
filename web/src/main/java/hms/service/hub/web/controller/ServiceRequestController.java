@@ -96,8 +96,18 @@ public class ServiceRequestController {
         List<ServiceRequest> serviceRequests = serviceRequestService.getServiceRequest(area, category, keyword);
         List<ServiceRequestDto> serviceRequestDtos = new ArrayList<>();
         for (ServiceRequest serviceRequest : serviceRequests) {
-            serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
-                    DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago"));
+            boolean isAccepted=false;
+            if(serviceRequest.getAssigned_bid() != null){
+                isAccepted = true;
+            }
+            if(!isAccepted){
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                        DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted));
+            }else {
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                        DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted,serviceRequest.getAssigned_bid().getId()));
+            }
+
         }
         model.put("area",areas);
         model.put("category",categories);
@@ -127,16 +137,26 @@ public class ServiceRequestController {
         List<Bid> bids = bidService.getBidForRequestService(serviceRequestToAdd.getId());
         serviceRequests.add(serviceRequestToAdd);
         for (ServiceRequest serviceRequest : serviceRequests) {
-            serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),serviceRequest.getDescription(),serviceRequest.getArea().getName(),
-                    DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago"));
+            boolean isAccepted=false;
+            if(serviceRequest.getAssigned_bid() != null){
+                isAccepted = true;
+            }
+            if(!isAccepted){
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                        DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted));
+            }else {
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                        DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted,serviceRequest.getAssigned_bid().getId()));
+            }
         }
 
         for (Bid bid : bids) {
-            bidDtos.add(new BidDto(bid.getId(),bid.getDescription(),bid.getUser().getName(),bid.getAmount(),rand.nextInt(2) + 1));
+            bidDtos.add(new BidDto(bid.getId(),bid.getDescription(),bid.getUser().getName(),bid.getAmount(),rand.nextInt(6) + 1));
         }
 
         model.put("bid",bidDtos);
         model.put("service",serviceRequestDtos);
+        model.put("request",serviceRequestToAdd.getId());
         return "bid_services";
     }
 

@@ -83,7 +83,7 @@
 
                   <div class="col-md-6">
                       <div class="pull-right">
-                          <img src="<c:url value="/images/team-small-2.jpg"/>" class="img-responsive"/>
+                          <img src="<c:url value="/images/client-face5.png"/>" class="img-responsive"/>
                       </div>
                   </div>
 

@@ -94,7 +94,7 @@ public class ServiceController {
         Random rand = new Random();
 
         List<ServicesDto> servicesDtos = new ArrayList<>();
-        for (Service services : servicesService.getAllServices()) {
+        for (Service services : servicesService.getAllServices(0)) {
             servicesDtos.add(new ServicesDto(services.getId(), (long) (rand.nextInt(5) + 1), services.getTitle(), getFirstFifty(services.getDescription()), services.getCreatedDate(), services.getStatus(), services.getCategory(), services.getArea(), services.getUser(), services.getTags()));
         }
         modalMap.put("services", servicesDtos);

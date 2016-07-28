@@ -24,4 +24,14 @@ public class BidServiceImpl implements BidService{
     public List<Bid> getBidForRequestService(long requestId) {
         return bidDao.getBidForRequestService(requestId);
     }
+
+    @Override
+    public Bid getBitById(long id) {
+        return bidDao.getBidById(id);
+    }
+
+    @Override
+    public void create(Bid bid) {
+        bidDao.save(bid);
+    }
 }

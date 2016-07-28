@@ -59,8 +59,8 @@ public class ServiceRequest implements Serializable {
     private String status;
 
     @OneToOne
-    @JoinColumn(name = "assigned_user_id")
-    private User assigned_user;
+    @JoinColumn(name = "assigned_bid_id")
+    private Bid assigned_bid;
 
     public Long getId() {
         return id;
@@ -134,11 +134,11 @@ public class ServiceRequest implements Serializable {
         this.status = status;
     }
 
-    public User getAssigned_user() {
-        return assigned_user;
+    public Bid getAssigned_bid() {
+        return assigned_bid;
     }
 
-    public void setAssigned_user(User assigned_user) {
-        this.assigned_user = assigned_user;
+    public void setAssigned_bid(Bid assigned_bid) {
+        this.assigned_bid = assigned_bid;
     }
 }

@@ -15,9 +15,15 @@ import java.util.List;
 @Repository("ServicesDao")
 public class ServicesDaoImpl extends UniversalDaoImpl<Service> implements ServicesDao{
 
-    public List<Service> getAllServices() {
+    public List<Service> getAllServices(int getCount) {
         Session session = sessionFactory.getCurrentSession();
-        return session.createCriteria(Service.class).list();
+        if(getCount == 0){
+            return session.createCriteria(Service.class).list();
+        }else {
+            return session.createCriteria(Service.class)
+                    .setMaxResults(getCount)
+                    .list();
+        }
     }
 
     public Service getSeriveById(long id) {

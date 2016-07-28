@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <t:wrapper>
 
@@ -15,7 +16,7 @@
      <div class="col-md-12">
        <div class="job-posts table-responsive">
            <div class="col-md-1 tbl-logo">
-             <img src="<c:url value="/images/job-logo${service.random}.png"/>" alt="">
+             <img  src="<c:url value="/images/job-logo${service.random}.png"/>" alt="">
            </div>
            <div class="col-md-9 pull-left">
              <h4>${service.title}
@@ -25,7 +26,10 @@
              </h4>
            </div>
            <div class="col-md-2 pull-right btn">
-             <button type="button" class="btn btn-custom">Bid Now</button>
+               <c:if test="${service.accepted == false}">
+             <button type="button" class="btn btn-custom"  data-toggle='modal' data-request-id="${service.id}"
+                     data-target='.create-bid-modal'>Bid Now</button>
+               </c:if>
              <%--<a href="${pageContext.request.contextPath}/postRequest/bid-service?id=${service.id}">Bid now</a>--%>
            </div>
        </div>
@@ -47,10 +51,9 @@
            <table class="table">
              <c:forEach items="${bid}" var="bid" varStatus="status">
                  <tr>
-                     <div class="item">
                          <td style="width: 60px">
                              <div class="client-face">
-                                 <img src="<c:url value="/images/client-face${bid.random}.png"/>" alt="">
+                                 <img style="width: 98px;height: 98px;" src="<c:url value="/images/client-face${bid.random}.png"/>" alt="">
                              </div>
                          </td>
                          <td style="width: 700px">
@@ -64,7 +67,20 @@
                             <h4>Reputation:<br><strong style="font-size: 25px">3.0</strong><strong style="font-size: 12px">/5</strong></h4>
                              <br> <div class="ui star rating" data-rating="3"></div>
                          </td>
-                     </div>
+                     <td>
+                         <c:if test="${service.accepted == true}">
+                             <c:if test="${service.bid == bid.id}">
+                                 <i class="fa fa-check fa-5x"></i>
+                                 <button type="button" class="btn btn-custom" onclick="location.href='<c:url value="/rating/rate?id=${service.id}"/>'">Rate Now</button>
+                             </c:if>
+                         </c:if>
+                         <c:if test="${service.accepted == false}">
+                             <button type="button" class="btn btn-custom" data-toggle='modal' data-bid-id="${bid.id}"
+                                     data-request-id="${request}"
+                                     data-target='.accept-bid-modal'>Accept
+                             </button>
+                         </c:if>
+                     </td>
                  </tr>
              </c:forEach>
            </table>
@@ -77,7 +93,8 @@
      </jsp:attribute>
 
     <jsp:attribute name="after_page_body">
-
+         <jsp:include page="bid.jsp"/>
+        <jsp:include page="bid_accept.jsp"/>
     </jsp:attribute>
 
     <jsp:attribute name="js_inline">
@@ -91,6 +108,26 @@
             $('.ui.rating')
                     .rating('disable')
             ;
+
+            $('.create-bid-modal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var requestId = button.data('requestId');
+
+                var modal = $(this);
+                modal.find('#request-id-input').val(requestId);
+            });
+
+            $('.accept-bid-modal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var requestId = button.data('requestId');
+                var bidId = button.data('bidId')
+
+                var modal = $(this);
+                modal.find('#request-id-accept').val(requestId);
+                modal.find('#bid-id-accept').val(bidId);
+            });
+
+
         </script>
     </jsp:attribute>
 </t:wrapper>

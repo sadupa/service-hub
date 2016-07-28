@@ -27,10 +27,11 @@
                  <h2>Service Searching Just Got So Easy</h2>
 
                  <p>Users create a request for a service, detailing their specific requirements.
-                     Service-Hub then generates the request and sends it out to the closest service-providers in your vicinity.</p>
+                     Service-Hub then generates the request and sends it out to the closest service-providers in your
+                     vicinity.</p>
 
                  <div class="search-form wow pulse" data-wow-delay="0.8s">
-                     <form action="<c:url value='/postRequest/view'/>" class=" form-inline"  method="GET" >
+                     <form action="<c:url value='/postRequest/view'/>" class=" form-inline" method="GET">
                          <div class="form-group">
                              <input type="text" class="form-control" placeholder="Job Key Word" name="keyword">
                          </div>
@@ -63,164 +64,29 @@
                  <h5>Our Process</h5>
 
                  <h2>How we work for you?</h2>
+
                  <p>Users create a request for a service, detailing their specific requirements.
-                     Service-Hub then generates the request and sends it out to the closest service-providers in your vicinity via SMS.</p>
+                     Service-Hub then generates the request and sends it out to the closest service-providers in your
+                     vicinity via SMS.</p>
              </div>
              <div class="row how-it-work text-center">
-                 <div class="col-md-4">
-                     <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
-                         <img src="<c:url value="images/how-work1.png"/>" alt="">
 
-                         <h3>Searching for the best job</h3>
+                 <c:forEach items="${services}" var="services" varStatus="q1">
+                     <div class="col-sm-4">
+                         <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
+                             <img src="<c:url value="/images/job-logo${services.imageId}.png"/>" alt="">
 
-                         <p>Using the outcomes from the job, we will put together a plan for the most effective
-                             marketing strategy to get the best results.</p>
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                     <div class="single-work  wow fadeInUp" data-wow-delay="0.9s">
-                         <img src="<c:url value="images/how-work2.png"/>" alt="">
+                             <h3>${services.title}</h3>
+                             <h4>${services.category.name}</h4>
 
-                         <h3>Searching for the best job</h3>
+                             <p><i class="icon-location"></i>${services.area.name}</p>
 
-                         <p>Using the outcomes from the job, we will put together a plan for the most effective
-                             marketing strategy to get the best results.</p>
-                     </div>
-                 </div>
-                 <div class="col-md-4">
-                     <div class="single-work wow fadeInUp" data-wow-delay="1s">
-                         <img src="<c:url value="images/how-work3.png"/> " alt="">
-
-                         <h3>Searching for the best job</h3>
-
-                         <p>Using the outcomes from the job, we will put together a plan for the most effective
-                             marketing strategy to get the best results.</p>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <hr>
-
-         <div class="container">
-             <div class="row job-posting wow fadeInUp" data-wow-delay="1s">
-                 <div role="tabpanel">
-                     <!-- Nav tabs -->
-                     <ul class="nav nav-tabs" role="tablist">
-                         <li role="presentation" class="active"><a href="#job-seekers" aria-controls="home" role="tab"
-                                                                   data-toggle="tab">Job Seekers</a></li>
-                         <li role="presentation"><a href="#employeers" aria-controls="profile" role="tab"
-                                                    data-toggle="tab">Employeers</a></li>
-                     </ul>
-
-                     <!-- Tab panes -->
-                     <div class="tab-content">
-                         <div role="tabpanel" class="tab-pane fade in active" id="job-seekers">
-                             <ul class="list-inline job-seeker">
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/team-small-5.jpg"/>" alt="">
-
-                                         <div class="overlay"><h3>Ohidul Islam</h3>
-
-                                             <p>Web Designer</p></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/team-small-6.jpg"/>" alt="">
-
-                                         <div class="overlay"><h3>Mohidul Islam</h3>
-
-                                             <p>CEO</p></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/team-small-3.jpg"/> " alt="">
-
-                                         <div class="overlay"><h3>Unknown girl</h3>
-
-                                             <p>Graphic Designer</p></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/team-small-4.jpg"/>" alt="">
-
-                                         <div class="overlay"><h3>Eftakher Alam</h3>
-
-                                             <p>Graphic Designer</p></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/team-small-2.jpg"/>" alt="">
-
-                                         <div class="overlay"><h3>Mark Otto</h3>
-
-                                             <p>Founder</p></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/team-small-1.jpg"/>" alt="">
-
-                                         <div class="overlay"><h3>Rasel Ahmed</h3>
-
-                                             <p>Web Developer</p></div>
-                                     </a>
-                                 </li>
-                             </ul>
-                         </div>
-                         <div role="tabpanel" class="tab-pane fade" id="employeers">
-                             <ul class="list-inline">
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/employee4.png"/>" alt="">
-
-                                         <div class="overlay"><h3>Instagram</h3></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/employee5.png"/>" alt="">
-
-                                         <div class="overlay"><h3>Microsoft</h3></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/employee6.png"/>" alt="">
-
-                                         <div class="overlay"><h3>Dribbble</h3></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/employee1.png"/>" alt="">
-
-                                         <div class="overlay"><h3>Beats Music</h3></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/employee2.png"/>" alt="">
-
-                                         <div class="overlay"><h3>Facebook</h3></div>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="">
-                                         <img src="<c:url value="images/employee3.png"/>" alt="">
-
-                                         <div class="overlay"><h3>Twitter</h3></div>
-                                     </a>
-                                 </li>
-                             </ul>
+                             <p>${services.description}</p>
+                             <a type="button" class="btn btn-success btn-xs"
+                                href="<c:url value="/services/view?id=${services.id}"/>">Read more</a>
                          </div>
                      </div>
-
-                 </div>
+                 </c:forEach>
              </div>
          </div>
          <hr>
@@ -237,13 +103,14 @@
                          <table class="table">
                              <c:forEach items="${service}" var="service" varStatus="status">
                                  <tr class="odd wow fadeInUp" data-wow-delay="1s">
-                                     <td class="tbl-logo"><img src="<c:url value="images/job-logo${service.random}.png"/>" alt=""></td>
+                                     <td class="tbl-logo"><img
+                                             src="<c:url value="images/job-logo${service.random}.png"/>" alt=""></td>
                                      <td class="tbl-title"><h4>${service.title}
                                          <br><span class="job-type">${service.createdOn}</span>
                                      </h4></td>
                                      <td><p>${service.description}...</p></td>
                                      <td><p><i class="icon-location"></i>${service.area}</p></td>
-                                     <td class="tbl-apply"><a href="#">Apply now</a></td>
+                                     <td class="tbl-apply"><a href="${pageContext.request.contextPath}/postRequest/bid-service?id=${service.id}">Bid Now</a></td>
                                  </tr>
                              </c:forEach>
                          </table>

@@ -499,8 +499,8 @@ background-color: #00aeef;
 }
 .testimonial .item .client-face {
   position: absolute;
-  top: 78px;
-  right: 130px;
+	top: 28px;
+	right: 200px;
 }
 .client-face > img {
   border: 5px solid #fff;

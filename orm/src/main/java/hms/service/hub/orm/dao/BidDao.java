@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface BidDao extends UniversalDao<Bid> {
     List<Bid> getBidForRequestService(long requestId);
+
+    Bid getBidById(long id);
 }
