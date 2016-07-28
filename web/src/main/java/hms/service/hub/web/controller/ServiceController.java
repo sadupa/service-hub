@@ -2,6 +2,7 @@ package hms.service.hub.web.controller;
 
 import hms.service.hub.core.service.AreaService;
 import hms.service.hub.core.service.CategoryService;
+import hms.service.hub.core.service.ServicesService;
 import hms.service.hub.core.service.TagService;
 import hms.service.hub.orm.model.Area;
 import hms.service.hub.orm.model.Category;
@@ -40,6 +41,8 @@ public class ServiceController {
     private TagService tagService;
     @Autowired
     private AreaService areaService;
+    @Autowired
+    private ServicesService servicesService;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String postServiceView(ModelMap modelMap) throws IOException {
@@ -57,5 +60,12 @@ public class ServiceController {
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     public String postService(ModelMap modelMap) {
         return "create-service";
+    }
+
+    @RequestMapping(value = "/all")
+    public String viewAllServices(ModelMap modalMap) {
+
+        modalMap.put("services", servicesService.getAllServices());
+        return "view_services";
     }
 }
