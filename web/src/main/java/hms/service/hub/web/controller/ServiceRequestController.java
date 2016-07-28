@@ -1,33 +1,30 @@
 package hms.service.hub.web.controller;
 
 
+import hms.service.hub.core.RequestStatus;
 import hms.service.hub.core.dto.BidDto;
 import hms.service.hub.core.dto.ServiceRequestDto;
-import hms.service.hub.core.service.*;
-import hms.service.hub.orm.model.*;
-import org.apache.commons.lang3.time.DurationFormatUtils;
-
+import hms.service.hub.core.service.BidService;
+import hms.service.hub.core.service.ServiceRequestService;
+import hms.service.hub.core.service.UserService;
+import hms.service.hub.orm.model.Bid;
 import hms.service.hub.orm.model.ServiceRequest;
-
-import org.omg.PortableServer.LIFESPAN_POLICY_ID;
+import org.apache.commons.lang3.time.DurationFormatUtils;
+import hms.service.hub.core.service.AreaService;
+import hms.service.hub.core.service.CategoryService;
+import hms.service.hub.core.service.TagService;
+import hms.service.hub.orm.model.Area;
+import hms.service.hub.orm.model.Category;
+import hms.service.hub.orm.model.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
-
-
-
-import javax.servlet.http.HttpServletRequest;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -47,8 +44,11 @@ public class ServiceRequestController {
     private ServiceRequestService serviceRequestService;
     @Autowired
     private BidService bidService;
+    @Autowired
+    private UserService userService;
 
     Random rand = new Random();
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String requestForm(Model model) {
 
@@ -60,26 +60,37 @@ public class ServiceRequestController {
         model.addAttribute("areas", areaList);
         model.addAttribute("tags", tagList);
 
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbb");
-
         return "postRequest";
     }
 
     @RequestMapping(value = "/submitPostRequest", method = RequestMethod.POST)
-    public String requestFormSubmit(@ModelAttribute ServiceRequest serviceRequest,
-                                    RedirectAttributes redirectAttributes, HttpServletRequest request) {
+    public String requestFormSubmit(@RequestParam("title") String title, @RequestParam("category") long category,
+                                    @RequestParam
+            ("area") long area, @RequestParam("description") String description, @RequestParam("tags") List<Long>
+                                                tags) {
 
-        //model.addAttribute("PostRequest", serviceRequest);
+        ServiceRequest request = new ServiceRequest();
+        request.setTitle(title);
+        request.setCategory(categoryService.getCategoryById(category));
+        request.setArea(areaService.getAreaById(area));
+        request.setDescription(description);
+        request.setTags(tagService.getTagsByIds(tags));
+        request.setStatus(RequestStatus.CREATED);
+        request.setUser(userService.getUserById(1));
+        request.setCreatedDate(new Date());
 
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbcccccccccccccccccccccdddddddddddddddddd");
+        serviceRequestService.saveServiceRequest(request);
 
-        return "result";
+        return "postRequest";
     }
 
 
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String viewServiceRequests(@RequestParam("area") long area, @RequestParam("category") long category,
+
                                       @RequestParam("keyword") String keyword,ModelMap model) {
+
+
         List<Area> areas = areaService.getAllArea();
         List<Category> categories = categoryService.getAllCategory();
         List<ServiceRequest> serviceRequests = serviceRequestService.getServiceRequest(area, category, keyword);
@@ -94,7 +105,6 @@ public class ServiceRequestController {
         return "services";
 
 
-
     }
 
     public String getFirstTwenty(String input ){
@@ -104,6 +114,7 @@ public class ServiceRequestController {
             return input;
         }
     }
+
 
     @RequestMapping(value = "/bid-service",method = RequestMethod.GET)
     public String getServiceRequestBidView(@RequestParam("id") long id,ModelMap model){

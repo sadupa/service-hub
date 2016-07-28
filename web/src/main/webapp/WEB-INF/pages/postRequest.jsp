@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+                        <input class="btn btn-custom" type="submit" value="Submit" /> <input class="btn btn-custom" type="reset" value="Reset" />
                     </div>
                 </div>
             </form>

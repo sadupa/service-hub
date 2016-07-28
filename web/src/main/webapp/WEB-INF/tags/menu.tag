@@ -35,6 +35,8 @@
                 </li>
                 <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="<c:url value="/profile/"/>">Profile</a>
                 </li>
+                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="<c:url value="/postRequest/"/>">Service Request</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
