@@ -3,6 +3,7 @@ package hms.service.hub.orm.dao.impl;
 import hms.service.hub.orm.dao.TagDao;
 import hms.service.hub.orm.model.Tag;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -28,6 +29,14 @@ public class TagDaoImpl extends UniversalDaoImpl<Tag> implements TagDao {
     public List<Tag> getAllTags() {
         Session session = getCurrentSession();
         return session.createCriteria(Tag.class)
+                .list();
+    }
+
+    @Override
+    public List<Tag> getTagsByIds(List<Long> ids) {
+        Session session = getCurrentSession();
+        return session.createCriteria(Tag.class)
+                .add(Restrictions.in("id", ids))
                 .list();
     }
 }

@@ -5,6 +5,7 @@ import hms.service.hub.orm.model.Area;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,5 +22,13 @@ public class AreaDaoImpl extends UniversalDaoImpl<Area> implements AreaDao {
                 .setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY)
                 .addOrder(Order.asc("name"))
                 .list();
+    }
+
+    @Override
+    public Area getAreaById(long id) {
+        Session session = getCurrentSession();
+        return (Area) session.createCriteria(Area.class)
+                .add(Restrictions.eq("id", id))
+                .uniqueResult();
     }
 }

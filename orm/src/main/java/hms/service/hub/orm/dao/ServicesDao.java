@@ -7,8 +7,9 @@ import java.util.List;
 /**
  * Created by parinda on 7/27/16.
  */
-public interface ServicesDao {
+public interface ServicesDao extends UniversalDao<Service> {
 
-    List <Service> getAllServices();
+    List<Service> getAllServices();
+
     Service getSeriveById(long id);
 }

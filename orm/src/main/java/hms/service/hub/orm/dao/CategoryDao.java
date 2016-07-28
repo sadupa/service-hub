@@ -8,6 +8,6 @@ import java.util.List;
  * Created by chathura on 7/27/16.
  */
 public interface CategoryDao extends UniversalDao<Category> {
+    Category getCategoryById(long id);
     List<Category> getAllCategory();
-
 }

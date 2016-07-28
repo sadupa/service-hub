@@ -16,11 +16,21 @@ import java.util.List;
 @Service("areaService")
 public class AreaServiceImpl implements AreaService {
 
+    @Override
+    public long saveArea(Area area) {
+        return areaDao.save(area);
+    }
+
     @Autowired
-    AreaDao areaDao;
+    private AreaDao areaDao;
 
     @Override
     public List<Area> getAllArea() {
         return areaDao.getAllArea();
+    }
+
+    @Override
+    public Area getAreaById(long id) {
+        return areaDao.getAreaById(id);
     }
 }

@@ -5,6 +5,7 @@ import hms.service.hub.orm.model.Category;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,6 +15,15 @@ import java.util.List;
  */
 @Repository("categoryDao")
 public class CategoryDaoImpl extends UniversalDaoImpl<Category> implements CategoryDao {
+
+    @Override
+    public Category getCategoryById(long id) {
+        Session session = getCurrentSession();
+        return (Category) session.createCriteria(Category.class)
+                .add(Restrictions.eq("id", id))
+                .uniqueResult();
+    }
+
     @Override
     public List<Category> getAllCategory() {
         Session session = getCurrentSession();

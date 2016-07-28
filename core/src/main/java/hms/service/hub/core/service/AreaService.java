@@ -8,6 +8,9 @@ import java.util.List;
  * Created by chathura on 7/27/16.
  */
 public interface AreaService {
-    //todo change to get all areas
+    long saveArea(Area area);
+
     List<Area> getAllArea();
+
+    Area getAreaById(long id);
 }

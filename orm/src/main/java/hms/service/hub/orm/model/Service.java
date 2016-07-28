@@ -23,6 +23,11 @@ import java.util.List;
 @Entity
 @Table(name = "service")
 public class Service implements Serializable {
+
+    private static final long serialVersionUID = -5887526231629369794L;
+
+    public static final String STATUS_ACTIVE = "ACTIVE";
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -121,5 +126,20 @@ public class Service implements Serializable {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Service{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", createdDate=" + createdDate +
+                ", status='" + status + '\'' +
+                ", category=" + category +
+                ", area=" + area +
+                ", user=" + user +
+                '}';
     }
 }

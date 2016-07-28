@@ -17,7 +17,12 @@ import java.util.List;
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
-    CategoryDao categoryDao;
+    private CategoryDao categoryDao;
+
+    @Override
+    public Category getCategoryById(long id) {
+        return categoryDao.getCategoryById(id);
+    }
 
     @Override
     public List<Category> getAllCategory() {

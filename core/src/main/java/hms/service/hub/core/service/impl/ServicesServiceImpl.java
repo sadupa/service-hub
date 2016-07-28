@@ -19,6 +19,11 @@ public class ServicesServiceImpl implements ServicesService {
     @Autowired
     private ServicesDao servicesDao;
 
+    @Override
+    public long save(hms.service.hub.orm.model.Service service) {
+        return servicesDao.save(service);
+    }
+
     public List<hms.service.hub.orm.model.Service> getAllServices() {
         return servicesDao.getAllServices();
     }

@@ -14,25 +14,7 @@
                 font-family: FontAwesome;
             }
         </style>
-            <form class="form-horizontal" action="/services/post">
-                <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label">Title</label>
-
-                    <div class="col-md-4">
-                        <input id="title" name="title" type="text" class="form-control" placeholder="I will do..."/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="area" class="col-sm-2 control-label">Category</label>
-
-                    <div class="col-md-4">
-                        <select id="category" name="category" class="form-control">
-                            <c:forEach var="category" items="${categories}">
-                                <option value="${category.id}">${category.name}</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                </div>
+            <form class="form-horizontal" method="post" action="post">
                 <div class="form-group">
                     <label for="area" class="col-sm-2 control-label">Area</label>
 
@@ -45,6 +27,24 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="category" class="col-sm-2 control-label">Category</label>
+
+                    <div class="col-md-4">
+                        <select id="category" name="category" class="form-control">
+                            <c:forEach var="category" items="${categories}">
+                                <option value="${category.id}">${category.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="title" class="col-sm-2 control-label">Title</label>
+
+                    <div class="col-md-4">
+                        <input id="title" name="title" type="text" class="form-control" placeholder="I will do..."/>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="description" class="col-sm-2 control-label">Description</label>
 
                     <div class="col-md-4">
@@ -53,6 +53,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tags" class="col-sm-2 control-label">Tags</label>
+
                     <div class="col-md-4">
                         <select id="tags" name="tags" class="ui fluid normal dropdown" multiple="">
                             <c:forEach var="tag" items="${tags}">
@@ -63,7 +64,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Sign in</button>
+                        <button type="submit" class="btn btn-default">Post</button>
                     </div>
                 </div>
             </form>

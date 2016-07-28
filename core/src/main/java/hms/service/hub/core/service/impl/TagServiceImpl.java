@@ -35,4 +35,9 @@ public class TagServiceImpl implements TagService {
     public List<Tag> getAllTags() {
         return tagDao.getAllTags();
     }
+
+    @Override
+    public List<Tag> getTagsByIds(List<Long> ids) {
+        return tagDao.getTagsByIds(ids);
+    }
 }

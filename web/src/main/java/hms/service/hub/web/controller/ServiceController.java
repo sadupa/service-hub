@@ -1,17 +1,19 @@
 package hms.service.hub.web.controller;
 
-import hms.service.hub.core.dto.ServiceRequestDto;
 import hms.service.hub.core.dto.ServicesDto;
-import hms.service.hub.core.service.AreaService;
-import hms.service.hub.core.service.CategoryService;
-import hms.service.hub.core.service.ServicesService;
-import hms.service.hub.core.service.TagService;
-import hms.service.hub.orm.model.*;
+import hms.service.hub.core.service.*;
+import hms.service.hub.orm.model.Area;
+import hms.service.hub.orm.model.Category;
+import hms.service.hub.orm.model.Service;
+import hms.service.hub.orm.model.Tag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,6 +48,11 @@ public class ServiceController {
     private AreaService areaService;
     @Autowired
     private ServicesService servicesService;
+    @Autowired
+    private UserService userService;
+
+    private Logger logger = LoggerFactory.getLogger(ServiceController.class);
+
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String postServiceView(ModelMap modelMap) throws IOException {
@@ -61,7 +68,22 @@ public class ServiceController {
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public String postService(ModelMap modelMap) {
+    public String postService(@RequestParam("area") Long areaId, @RequestParam("category") Long categoryId,
+                              @RequestParam(value = "title", required = false) String title, @RequestParam(value = "description", required = false) String description,
+                              @RequestParam(value = "tags", required = false) List<Long> tagsIds) {
+        Service service = new Service();
+        service.setArea(areaService.getAreaById(areaId));
+        service.setCategory(categoryService.getCategoryById(categoryId));
+        service.setTitle(title);
+        service.setDescription(description);
+        service.setTags(tagService.getTagsByIds(tagsIds));
+        service.setCreatedDate(new Date());
+        service.setStatus(Service.STATUS_ACTIVE);
+        service.setUser(userService.getUserById(1));
+
+        servicesService.save(service);
+        logger.info("New service created {}", service);
+
         return "create-service";
     }
 

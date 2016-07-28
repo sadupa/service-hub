@@ -20,4 +20,5 @@ import java.util.List;
  */
 public interface TagDao extends UniversalDao<Tag> {
     List<Tag> getAllTags();
+    List<Tag> getTagsByIds(List<Long> ids);
 }

@@ -8,6 +8,7 @@ import java.util.List;
  * Created by chathura on 7/27/16.
  */
 public interface CategoryService {
+    Category getCategoryById(long id);
     //todo make this getAllCategories
     List<Category> getAllCategory();
 }
