@@ -57,7 +57,7 @@
                           <input type="text" class="form-control" id="mobileNo" name="mobileNo"/>
                       </div>
 
-                          <button type="submit" class="btn btn-theme">Save</button>
+                          <button type="submit" class="btn btn-custom">Save</button>
                       </form>
 
                   </div>
