@@ -43,7 +43,7 @@ public class ServiceRequestController {
         List<ServiceRequest> serviceRequests = serviceRequestService.getServiceRequest(area, category, keyword);
         List<ServiceRequestDto> serviceRequestDtos = new ArrayList<>();
         for (ServiceRequest serviceRequest : serviceRequests) {
-            serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getAreaName(),
+            serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
                     DurationFormatUtils.formatDurationWords(serviceRequest.getCreatedDate().getTime(), true, false)));
         }
 
