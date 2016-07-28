@@ -153,6 +153,27 @@
                           </div>
                       </div>
 
+                      <div class="box">
+                          <div class="row description">
+                              <div class="col-md-10">
+                                  <dl>
+                                      <dt>Professionalism</dt>
+                                      <dd>For writers such as Alexander Pope and Samuel Johnson, struggling in the
+                                          transition from
+                                          the age of patronage to that of Grub Street professionalism, Shakespeare
+                                          offered not only
+                                          a body of poetic invention but also an inspirational career trajectory.
+                                          —Jonathan Bate,
+                                          Harper's, April 2007
+                                      </dd>
+                                  </dl>
+                              </div>
+                              <div class="col-md-2">
+                                  <div class="ui star rating" data-rating="3" id="p"></div>
+                              </div>
+                          </div>
+                      </div>
+
                       <form action="<c:url value="/rating/save"/>" method="post">
 
                           <input type="hidden" id="quality" name="quality" value="3"/>
