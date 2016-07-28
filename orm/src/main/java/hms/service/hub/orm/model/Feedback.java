@@ -24,7 +24,7 @@ public class Feedback implements Serializable{
     @JoinColumn(name = "service_request_id")
     private ServiceRequest serviceRequest;
 
-    @Column(name = "rate_quality_of _the_work")
+    @Column(name = "rate_quality_of_the_work")
     private int qualityOfWork;
 
     @Column(name = "rate_communication")
