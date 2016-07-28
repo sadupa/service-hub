@@ -1,9 +1,20 @@
 package hms.service.hub.web.controller;
 
+
 import hms.service.hub.core.dto.ServiceRequestDto;
 import hms.service.hub.core.service.ServiceRequestService;
 import hms.service.hub.orm.model.ServiceRequest;
 import org.apache.commons.lang3.time.DurationFormatUtils;
+
+import hms.service.hub.core.service.AreaService;
+import hms.service.hub.core.service.CategoryService;
+import hms.service.hub.core.service.TagService;
+import hms.service.hub.orm.model.Area;
+import hms.service.hub.orm.model.Category;
+import hms.service.hub.orm.model.ServiceRequest;
+import hms.service.hub.orm.model.Tag;
+import hms.service.hub.orm.model.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,33 +22,62 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
+
+
+
+import javax.servlet.http.HttpServletRequest;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
 
 @Controller
+@RequestMapping("/postRequest")
 public class ServiceRequestController {
 
     @Autowired
-    ServiceRequestService serviceRequestService;
+    private CategoryService categoryService;
+    @Autowired
+    private TagService tagService;
+    @Autowired
+    private AreaService areaService;
+    @Autowired
+    private ServiceRequestService serviceRequestService;
 
-    @RequestMapping(value = "/postRequest", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String requestForm(Model model) {
-        model.addAttribute("postRequest", new ServiceRequest());
+
+        List<Category> categoryList = categoryService.getAllCategory();
+        List<Tag> tagList = tagService.getAllTags();
+        List<Area> areaList = areaService.getAllArea();
+
+        model.addAttribute("categories", categoryList);
+        model.addAttribute("areas", areaList);
+        model.addAttribute("tags", tagList);
+
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbb");
+
         return "postRequest";
     }
 
-    @RequestMapping(value = "/postRequest", method = RequestMethod.POST)
-    public String requestFormSubmit(@ModelAttribute ServiceRequest serviceRequest, Model model) {
-        model.addAttribute("PostRequest", serviceRequest);
+    @RequestMapping(value = "/submitPostRequest", method = RequestMethod.POST)
+    public String requestFormSubmit(@ModelAttribute ServiceRequest serviceRequest,
+                                    RedirectAttributes redirectAttributes, HttpServletRequest request) {
+
+        //model.addAttribute("PostRequest", serviceRequest);
+
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbcccccccccccccccccccccdddddddddddddddddd");
+
         return "result";
     }
+
 
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String viewServiceRequests(@RequestParam("area") long area, @RequestParam("category") long category,
@@ -51,8 +91,11 @@ public class ServiceRequestController {
                     DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)));
         }
 
-        model.put("service",serviceRequestDtos);
+        model.put("service", serviceRequestDtos);
         return "services";
+
+
+
     }
 
     public String getFirstTwenty(String input ){

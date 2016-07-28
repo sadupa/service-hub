@@ -55,6 +55,13 @@ public class ServiceRequest implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "tag_id", nullable = false)})
     private List<Tag> tags;
 
+    @Column(name = "status")
+    private String status;
+
+    @OneToOne
+    @JoinColumn(name = "assigned_user_id")
+    private User assigned_user;
+
     public Long getId() {
         return id;
     }
@@ -117,5 +124,21 @@ public class ServiceRequest implements Serializable {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public User getAssigned_user() {
+        return assigned_user;
+    }
+
+    public void setAssigned_user(User assigned_user) {
+        this.assigned_user = assigned_user;
     }
 }

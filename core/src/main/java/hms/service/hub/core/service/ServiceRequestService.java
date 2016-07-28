@@ -17,7 +17,17 @@ public interface ServiceRequestService {
      * @param keyword service request description search key word
      * @return {@link hms.service.hub.orm.model.ServiceRequest}
      */
+
     List<ServiceRequest> getServiceRequest(long area,long category,String keyword);
 
     List<ServiceRequest> getAllServiceRequests();
+
+    ServiceRequest getServiceRequestById(Long id);
+
+    Long saveServiceRequest(ServiceRequest serviceRequest);
+
+    void updateServiceRequest(ServiceRequest serviceRequest);
+
+    void removeServiceRequest(ServiceRequest serviceRequest);
+
 }

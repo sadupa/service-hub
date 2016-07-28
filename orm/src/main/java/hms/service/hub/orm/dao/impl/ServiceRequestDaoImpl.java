@@ -15,30 +15,41 @@ import java.util.List;
  */
 
 @Repository("serviceRequestDao")
-public class ServiceRequestDaoImpl extends UniversalDaoImpl<ServiceRequest> implements ServiceRequestDao{
+public class ServiceRequestDaoImpl extends UniversalDaoImpl<ServiceRequest> implements ServiceRequestDao {
 
     @Override
-    public List<ServiceRequest> getServiceRequest(long area,long category,String keyword) {
+    public List<ServiceRequest> getServiceRequest(long area, long category, String keyword) {
         Session session = getCurrentSession();
         if (keyword == null || keyword.isEmpty()) {
             return session.createCriteria(ServiceRequest.class)
-                    .add(Restrictions.eq("area.id", area))
-                    .add(Restrictions.eq("category.id", category))
-                    .list();
+                          .add(Restrictions.eq("area.id", area))
+                          .add(Restrictions.eq("category.id", category))
+                          .list();
         } else {
             return session.createCriteria(ServiceRequest.class)
-                    .add(Restrictions.like("description", keyword, MatchMode.ANYWHERE))
-                    .add(Restrictions.eq("area.id", area))
-                    .add(Restrictions.eq("category.id", category))
-                    .list();
+                          .add(Restrictions.like("description", keyword, MatchMode.ANYWHERE))
+                          .add(Restrictions.eq("area.id", area))
+                          .add(Restrictions.eq("category.id", category))
+                          .list();
         }
     }
 
     @Override
+
     public List<ServiceRequest> getAllServiceRequest() {
         Session session = getCurrentSession();
         return session.createCriteria(ServiceRequest.class)
-                .setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY)
-                .list();
+                      .setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY)
+                      .list();
+
+
+    }
+
+    @Override
+    public ServiceRequest getServiceRequestById(Long id) {
+        Session session = getCurrentSession();
+        return (ServiceRequest) session.createCriteria(ServiceRequest.class)
+                                       .add(Restrictions.eq("id", id))
+                                       .uniqueResult();
     }
 }

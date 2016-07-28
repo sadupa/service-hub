@@ -1,5 +1,6 @@
 package hms.service.hub.orm.dao;
 
+import hms.service.hub.orm.model.Service;
 import hms.service.hub.orm.model.ServiceRequest;
 
 import java.util.List;
@@ -12,4 +13,7 @@ public interface ServiceRequestDao extends UniversalDao<ServiceRequest> {
     List getServiceRequest(long area, long category, String keyword);
 
     List<ServiceRequest> getAllServiceRequest();
+
+    ServiceRequest getServiceRequestById(Long id);
+
 }

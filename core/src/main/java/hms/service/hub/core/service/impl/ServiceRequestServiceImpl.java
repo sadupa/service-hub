@@ -25,7 +25,30 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
+
     public List<ServiceRequest> getAllServiceRequests() {
         return serviceRequestDao.getAllServiceRequest();
+
+    }
+
+    @Override
+    public ServiceRequest getServiceRequestById(Long id) {
+        return serviceRequestDao.getServiceRequestById(id);
+    }
+
+    @Override
+    public Long saveServiceRequest(ServiceRequest serviceRequest) {
+        return serviceRequestDao.save(serviceRequest);
+    }
+
+    @Override
+    public void updateServiceRequest(ServiceRequest serviceRequest) {
+        serviceRequestDao.update(serviceRequest);
+    }
+
+    @Override
+    public void removeServiceRequest(ServiceRequest serviceRequest) {
+        serviceRequestDao.delete(serviceRequest);
+
     }
 }
