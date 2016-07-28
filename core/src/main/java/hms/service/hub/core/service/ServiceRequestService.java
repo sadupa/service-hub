@@ -11,10 +11,10 @@ public interface ServiceRequestService {
 
     /**
      *
-     * @param area area name
-     * @param category category name
+     * @param area area id
+     * @param category category id
      * @param keyword service request description search key word
      * @return {@link hms.service.hub.orm.model.ServiceRequest}
      */
-    List<ServiceRequest> getServiceRequest(String area,String category,String keyword);
+    List<ServiceRequest> getServiceRequest(long area,long category,String keyword);
 }

@@ -19,15 +19,18 @@
           <div class="col-md-9">
               <div class="job-posts table-responsive">
                   <table class="table">
+                      <c:forEach items="${service}" var="service" varStatus="status">
                       <tr class="odd wow fadeInUp" data-wow-delay="1s">
                           <td class="tbl-logo"><img src="<c:url value="images/job-logo1.png"/>" alt=""></td>
-                          <td class="tbl-title"><h4>Web Designer <br><span class="job-type">full time</span>
+                          <td class="tbl-title"><h4>"${service.title}"
+                              <br><span class="job-type">"${service.createdOn}"</span>
                           </h4></td>
-                          <td><p>dribbble community</p></td>
-                          <td><p><i class="icon-location"></i>San Franciso, USA</p></td>
+                          <td><p>"${service.description}"...</p></td>
+                          <td><p><i class="icon-location"></i>"${service.area}"</p></td>
                           <td><p>&dollar; 14000</p></td>
                           <td class="tbl-apply"><a href="#">Apply now</a></td>
                       </tr>
+                      </c:forEach>
                   </table>
               </div>
               <div class="more-jobs">

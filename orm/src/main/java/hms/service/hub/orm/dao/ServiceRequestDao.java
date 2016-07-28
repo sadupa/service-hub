@@ -9,6 +9,6 @@ import java.util.List;
  */
 
 public interface ServiceRequestDao extends UniversalDao<ServiceRequest> {
-    List<ServiceRequest> getServiceRequest(String area,String category,String keyword);
+    List getServiceRequest(long area, long category, String keyword);
 
 }

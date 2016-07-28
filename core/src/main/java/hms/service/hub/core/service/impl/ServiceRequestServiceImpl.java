@@ -20,7 +20,7 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     ServiceRequestDao serviceRequestDao;
 
     @Override
-    public List<ServiceRequest> getServiceRequest(String area, String category, String keyword) {
+    public List<ServiceRequest> getServiceRequest(long area, long category, String keyword) {
         return serviceRequestDao.getServiceRequest(area, category, keyword);
     }
 }

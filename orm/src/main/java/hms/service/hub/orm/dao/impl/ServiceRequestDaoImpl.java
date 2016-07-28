@@ -3,6 +3,7 @@ package hms.service.hub.orm.dao.impl;
 import hms.service.hub.orm.dao.ServiceRequestDao;
 import hms.service.hub.orm.model.ServiceRequest;
 import org.hibernate.Session;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -16,22 +17,18 @@ import java.util.List;
 public class ServiceRequestDaoImpl extends UniversalDaoImpl<ServiceRequest> implements ServiceRequestDao{
 
     @Override
-    public List<ServiceRequest> getServiceRequest(String area,String category,String keyword) {
+    public List<ServiceRequest> getServiceRequest(long area,long category,String keyword) {
         Session session = getCurrentSession();
-        if (keyword != null || !keyword.isEmpty()) {
+        if (keyword == null || keyword.isEmpty()) {
             return session.createCriteria(ServiceRequest.class)
-                    .createAlias("area", "area")
-                    .createAlias("category", "category")
-                    .add(Restrictions.eq("area.areaName", area))
-                    .add(Restrictions.eq("category.name", category))
-                    .add(Restrictions.like("description",keyword))
+                    .add(Restrictions.eq("area.id", area))
+                    .add(Restrictions.eq("category.id", category))
                     .list();
         } else {
             return session.createCriteria(ServiceRequest.class)
-                    .createAlias("area", "area")
-                    .createAlias("category", "category")
-                    .add(Restrictions.eq("area.areaName", area))
-                    .add(Restrictions.eq("category.name", category))
+                    .add(Restrictions.like("description", keyword, MatchMode.ANYWHERE))
+                    .add(Restrictions.eq("area.id", area))
+                    .add(Restrictions.eq("category.id", category))
                     .list();
         }
     }
