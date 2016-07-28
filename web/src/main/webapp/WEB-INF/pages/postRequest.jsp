@@ -14,7 +14,7 @@
                 font-family: FontAwesome;
             }
         </style>
-            <form class="form-horizontal" action="<c:url value="/postRequest/submitPostRequest"/>" method="post">
+            <form class="form-horizontal"  role="form" action="<c:url value="/postRequest/submitPostRequest"/>" method="post">
                 <div class="form-group">
                     <label for="title" class="col-sm-2 control-label">Title</label>
 
@@ -27,7 +27,6 @@
 
                     <div class="col-md-4">
                         <select id="category" name="category" class="ui fluid normal dropdown">
-                            <option value=""></option>
                             <c:forEach var="category" items="${categories}">
                                 <option value="${category.id}">${category.name}</option>
                             </c:forEach>
@@ -38,7 +37,6 @@
                     <label for="area" class="col-sm-2 control-label">Area</label>
                     <div class="col-md-4">
                         <select id="area" name="area" class="ui fluid normal dropdown">
-                            <option value=""></option>
                             <c:forEach var="area" items="${areas}">
                                 <option value="${area.id}">${area.name}</option>
                             </c:forEach>
@@ -56,6 +54,7 @@
                     <label for="tags" class="col-sm-2 control-label">Tags</label>
                     <div class="col-md-4">
                         <select id="tags" name="tags" class="ui fluid normal dropdown" multiple="">
+                            <option value="-1"></option>
                             <c:forEach var="tag" items="${tags}">
                                 <option value="${tag.id}">${tag.name}</option>
                             </c:forEach>
