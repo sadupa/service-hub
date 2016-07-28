@@ -11,6 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,6 +30,12 @@ public class ServiceRequest implements Serializable {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "created_date")
+    private Date createdDate;
 
     @OneToOne
     @JoinColumn(name = "category_id")
@@ -62,6 +69,22 @@ public class ServiceRequest implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public Category getCategory() {
