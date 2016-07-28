@@ -37,4 +37,12 @@ INSERT INTO user (id, email, enabled, username, password, status, role_id) VALUE
 
 INSERT INTO `tag` (`id`, `name`, `category`) VALUES
   (1, 'Wedding Photography', 1),
-  (2, 'Event Photography', 1);
+  (2, 'Event Photography', 1),
+  (3, 'AC', 3),
+  (4, 'non-AC', 3),
+  (5, 'Airport Hire', 3),
+  (6, 'Out Door Party', 4),
+  (7, 'Birthday Party', 4),
+  (8, 'Weddings', 4),
+  (9, 'Functions', 4);
+
