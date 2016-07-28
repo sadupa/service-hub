@@ -2,6 +2,7 @@ package hms.service.hub.core.service;
 
 import hms.service.hub.orm.model.ServiceRequest;
 
+import javax.swing.*;
 import java.util.List;
 
 /**
@@ -17,4 +18,6 @@ public interface ServiceRequestService {
      * @return {@link hms.service.hub.orm.model.ServiceRequest}
      */
     List<ServiceRequest> getServiceRequest(long area,long category,String keyword);
+
+    List<ServiceRequest> getAllServiceRequests();
 }

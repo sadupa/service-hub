@@ -11,4 +11,5 @@ import java.util.List;
 public interface ServiceRequestDao extends UniversalDao<ServiceRequest> {
     List getServiceRequest(long area, long category, String keyword);
 
+    List<ServiceRequest> getAllServiceRequest();
 }

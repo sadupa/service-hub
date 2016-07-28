@@ -7,6 +7,7 @@ import java.util.Date;
  */
 public class ServiceRequestDto {
 
+    public long id;
     public String title;
     public String description;
     public String area;
@@ -15,11 +16,20 @@ public class ServiceRequestDto {
     public ServiceRequestDto() {
     }
 
-    public ServiceRequestDto(String title, String description, String area, String createdOn) {
+    public ServiceRequestDto(long id, String title, String description, String area, String createdOn) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.area = area;
         this.createdOn = createdOn;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {

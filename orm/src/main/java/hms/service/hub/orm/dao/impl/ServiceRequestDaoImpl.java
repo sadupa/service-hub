@@ -3,6 +3,7 @@ package hms.service.hub.orm.dao.impl;
 import hms.service.hub.orm.dao.ServiceRequestDao;
 import hms.service.hub.orm.model.ServiceRequest;
 import org.hibernate.Session;
+import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -31,5 +32,13 @@ public class ServiceRequestDaoImpl extends UniversalDaoImpl<ServiceRequest> impl
                     .add(Restrictions.eq("category.id", category))
                     .list();
         }
+    }
+
+    @Override
+    public List<ServiceRequest> getAllServiceRequest() {
+        Session session = getCurrentSession();
+        return session.createCriteria(ServiceRequest.class)
+                .setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY)
+                .list();
     }
 }

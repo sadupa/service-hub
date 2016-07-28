@@ -23,4 +23,9 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     public List<ServiceRequest> getServiceRequest(long area, long category, String keyword) {
         return serviceRequestDao.getServiceRequest(area, category, keyword);
     }
+
+    @Override
+    public List<ServiceRequest> getAllServiceRequests() {
+        return serviceRequestDao.getAllServiceRequest();
+    }
 }

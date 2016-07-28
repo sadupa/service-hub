@@ -26,7 +26,7 @@
                 </c:if>
             </div>
             <ul class="main-nav nav navbar-nav navbar-right">
-                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="#">Home</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="<c:url value="/"/>">Home</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="#">Job Seekers</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="#">Employeers</a></li>
                 <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="<c:url value="/services/all"/>">Services</a></li>

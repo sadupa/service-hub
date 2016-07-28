@@ -16,7 +16,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 
 @Controller
@@ -40,11 +42,13 @@ public class ServiceRequestController {
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String viewServiceRequests(@RequestParam("area") long area, @RequestParam("category") long category,
                                       @RequestParam("keyword") String keyword,ModelMap model) {
+        Random rand = new Random();
+
         List<ServiceRequest> serviceRequests = serviceRequestService.getServiceRequest(area, category, keyword);
         List<ServiceRequestDto> serviceRequestDtos = new ArrayList<>();
         for (ServiceRequest serviceRequest : serviceRequests) {
-            serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
-                    DurationFormatUtils.formatDurationWords(serviceRequest.getCreatedDate().getTime(), true, false)));
+            serviceRequestDtos.add(new ServiceRequestDto(rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                    DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)));
         }
 
         model.put("service",serviceRequestDtos);
@@ -52,8 +56,8 @@ public class ServiceRequestController {
     }
 
     public String getFirstTwenty(String input ){
-        if(input.length() > 20){
-            return input.substring(0,20);
+        if(input.length() > 50){
+            return input.substring(0,50);
         }else {
             return input;
         }
