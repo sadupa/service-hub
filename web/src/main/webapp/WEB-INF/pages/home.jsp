@@ -85,7 +85,7 @@
                                      </c:forEach>
                              </p>
 
-                             <p>${services.description}</p>
+                             <p>${services.description}...</p>
                              <a type="button" class="btn btn-success btn-xs"
                                 href="<c:url value="/services/view?id=${services.id}"/>">Read more</a>
                          </div>
