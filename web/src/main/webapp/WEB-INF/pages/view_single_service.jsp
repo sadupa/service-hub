@@ -46,8 +46,11 @@
                  </div>
                  <hr/>
                  <p style="font-size: 16px;">${service.description}</p>
-
-                 <p><i class="icon-location"></i>${service.area.name}</p>
+                 <p>
+                     <c:forEach items="${service.area}" var="area">
+                         <i class="icon-location"></i>${area.name}
+                     </c:forEach>
+                 </p>
                  <hr/>
                  <c:forEach items="${service.tags}" var="tag">
                      <span class="label label-info">${tag.name}</span>

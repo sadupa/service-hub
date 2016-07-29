@@ -21,7 +21,11 @@
            <div class="col-md-9 pull-left">
              <h4>${service.title}
                <br>
-               <p><i class="icon-location"></i>${service.area}</p>
+               <p>
+                   <c:forEach items="${service.areas}" var="area">
+                   <i class="icon-location"></i>${area.name}
+                   </c:forEach>
+               </p>
                <span style="font-weight: normal;color: #c2c2c2; ">${service.createdOn}</span>
              </h4>
            </div>

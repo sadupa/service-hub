@@ -142,10 +142,10 @@ public class ServiceRequestController {
                 isAccepted = true;
             }
             if(!isAccepted){
-                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),null/*serviceRequest.getArea().getName()*/,
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea(),
                         DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted));
             }else {
-                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),null/*serviceRequest.getArea().getName()*/,
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea(),
                         DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted,serviceRequest.getAssigned_bid().getId()));
             }
         }

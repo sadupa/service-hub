@@ -68,7 +68,11 @@
                          <img src="<c:url value="/images/job-logo${services.imageId}.png"/>" alt="">
                          <h3>${services.title}</h3>
                          <h4>${services.category.name}</h4>
-                         <p><i class="icon-location"></i>${services.area.name}</p>
+                         <p>
+                         <c:forEach items="${services.area}" var="area" varStatus="status">
+                         <i class="icon-location"></i>${area.name}
+                         </c:forEach>
+                         </p>
                          <p>${services.description}</p>
                          <a type="button" class="btn btn-success btn-xs" href="<c:url value="/services/view?id=${services.id}"/>"">Read more</a>
                      </div>

@@ -55,7 +55,11 @@
                               <br><span class="job-type">${service.createdOn}</span>
                           </h4></td>
                           <td><p>${service.description}...</p></td>
-                          <td><p><i class="icon-location"></i>${service.area}</p></td>
+                          <td><p>
+                              <c:forEach items="${service.areas}" var="areas">
+                              <i class="icon-location"></i>${areas.name}
+                              </c:forEach>
+                          </p></td>
                           <td class="tbl-apply"><a href="${pageContext.request.contextPath}/postRequest/bid-service?id=${service.id}">Bid now</a></td>
                       </tr>
                       </c:forEach>
