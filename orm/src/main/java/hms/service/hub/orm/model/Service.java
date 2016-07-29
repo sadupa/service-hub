@@ -43,9 +43,11 @@ public class Service implements Serializable {
     @OneToOne
     @JoinColumn(name = "category_id")
     private Category category;
-    @OneToOne
-    @JoinColumn(name = "area_id")
-    private Area area;
+    @ManyToMany
+    @JoinTable(name = "service_area", joinColumns = {
+            @JoinColumn(name = "service_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "area_id", nullable = false)})
+    private List<Area> area;
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -104,11 +106,11 @@ public class Service implements Serializable {
         this.category = category;
     }
 
-    public Area getArea() {
+    public List<Area> getArea() {
         return area;
     }
 
-    public void setArea(Area area) {
+    public void setArea(List<Area> area) {
         this.area = area;
     }
 

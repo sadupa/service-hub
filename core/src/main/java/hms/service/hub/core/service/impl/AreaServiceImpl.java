@@ -33,4 +33,9 @@ public class AreaServiceImpl implements AreaService {
     public Area getAreaById(long id) {
         return areaDao.getAreaById(id);
     }
+
+    @Override
+    public List<Area> getAreas(List<Long> areaIds) {
+        return areaDao.getAreas(areaIds);
+    }
 }

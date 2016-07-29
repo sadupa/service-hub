@@ -69,11 +69,11 @@ public class ServiceController {
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public String postService(@RequestParam("area") Long areaId, @RequestParam("category") Long categoryId,
+    public String postService(@RequestParam("area") List<Long> areaIds, @RequestParam("category") Long categoryId,
                               @RequestParam(value = "title", required = false) String title, @RequestParam(value = "description", required = false) String description,
                               @RequestParam(value = "tags", required = false) List<Long> tagsIds) {
         Service service = new Service();
-        service.setArea(areaService.getAreaById(areaId));
+        service.setArea(areaService.getAreas(areaIds));
         service.setCategory(categoryService.getCategoryById(categoryId));
         service.setTitle(title);
         service.setDescription(description);
