@@ -1,6 +1,8 @@
 package hms.service.hub.core.dto;
 
-import java.util.Date;
+import hms.service.hub.orm.model.Area;
+
+import java.util.List;
 
 /**
  * Created by chathura on 7/27/16.
@@ -11,7 +13,7 @@ public class ServiceRequestDto {
     public int random;
     public String title;
     public String description;
-    public String area;
+    public List<Area> areas;
     public String createdOn;
     public boolean accepted;
     public long bid;
@@ -19,24 +21,24 @@ public class ServiceRequestDto {
     public ServiceRequestDto() {
     }
 
-    public ServiceRequestDto(long id, int random, String title, String description, String area, String createdOn,
+    public ServiceRequestDto(long id, int random, String title, String description, List<Area> areas, String createdOn,
                              boolean accepted, long bid) {
         this.id = id;
         this.random = random;
         this.title = title;
         this.description = description;
-        this.area = area;
+        this.areas = areas;
         this.createdOn = createdOn;
         this.accepted = accepted;
         this.bid = bid;
     }
 
-    public ServiceRequestDto(long id, int random, String title, String description, String area, String createdOn, boolean accepted) {
+    public ServiceRequestDto(long id, int random, String title, String description, List<Area> areas, String createdOn, boolean accepted) {
         this.id = id;
         this.random = random;
         this.title = title;
         this.description = description;
-        this.area = area;
+        this.areas = areas;
         this.createdOn = createdOn;
         this.accepted = accepted;
     }
@@ -73,14 +75,6 @@ public class ServiceRequestDto {
         this.description = description;
     }
 
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
     public String getCreatedOn() {
         return createdOn;
     }
@@ -103,5 +97,13 @@ public class ServiceRequestDto {
 
     public void setBid(long bid) {
         this.bid = bid;
+    }
+
+    public List<Area> getAreas() {
+        return areas;
+    }
+
+    public void setAreas(List<Area> areas) {
+        this.areas = areas;
     }
 }
