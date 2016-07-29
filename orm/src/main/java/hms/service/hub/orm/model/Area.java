@@ -17,8 +17,6 @@ public class Area implements Serializable{
 
     private static final long serialVersionUID = 1927557244278436381L;
 
-    public Area(){}
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -26,6 +24,8 @@ public class Area implements Serializable{
 
     @Column(name = "area_name", nullable = false)
     private String name;
+
+
 
     public long getId() {
         return id;

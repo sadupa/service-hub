@@ -34,9 +34,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="area" class="col-sm-2 control-label">Area</label>
+                    <label for="tags" class="col-sm-2 control-label">Areas</label>
+
                     <div class="col-md-4">
-                        <select id="area" name="area" class="ui fluid normal dropdown">
+                        <select id="area" name="area" class="ui fluid normal dropdown" multiple="">
                             <c:forEach var="area" items="${areas}">
                                 <option value="${area.id}">${area.name}</option>
                             </c:forEach>

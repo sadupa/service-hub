@@ -66,13 +66,13 @@ public class ServiceRequestController {
     @RequestMapping(value = "/submitPostRequest", method = RequestMethod.POST)
     public String requestFormSubmit(@RequestParam("title") String title, @RequestParam("category") long category,
                                     @RequestParam
-            ("area") long area, @RequestParam("description") String description, @RequestParam("tags") List<Long>
+            ("area") List<Long> areas, @RequestParam("description") String description, @RequestParam("tags") List<Long>
                                                 tags) {
 
         ServiceRequest request = new ServiceRequest();
         request.setTitle(title);
         request.setCategory(categoryService.getCategoryById(category));
-        request.setArea(areaService.getAreaById(area));
+        //request.setArea(areaService.getAreasByIds(areas));
         request.setDescription(description);
         request.setTags(tagService.getTagsByIds(tags));
         request.setStatus(RequestStatus.CREATED);

@@ -1,15 +1,6 @@
 package hms.service.hub.orm.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -41,9 +32,11 @@ public class ServiceRequest implements Serializable {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToOne
-    @JoinColumn(name = "area_id")
-    private Area area;
+    @ManyToMany
+    @JoinTable(name = "service_request_area", joinColumns = {
+            @JoinColumn(name = "service_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "area_id", nullable = false)})
+    private List<Area> area;
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -102,14 +95,6 @@ public class ServiceRequest implements Serializable {
         this.category = category;
     }
 
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
-    }
-
     public User getUser() {
         return user;
     }
@@ -140,5 +125,13 @@ public class ServiceRequest implements Serializable {
 
     public void setAssigned_user(User assigned_user) {
         this.assigned_user = assigned_user;
+    }
+
+    public List<Area> getArea() {
+        return area;
+    }
+
+    public void setArea(List<Area> area) {
+        this.area = area;
     }
 }
