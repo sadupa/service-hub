@@ -22,15 +22,17 @@ public class ServiceRequestDaoImpl extends UniversalDaoImpl<ServiceRequest> impl
         Session session = getCurrentSession();
         if (keyword == null || keyword.isEmpty()) {
             return session.createCriteria(ServiceRequest.class)
-                          .add(Restrictions.eq("area.id", area))
-                          .add(Restrictions.eq("category.id", category))
-                          .list();
+                    .createAlias("area", "area")
+                    .add(Restrictions.eq("area.id", area))
+                    .add(Restrictions.eq("category.id", category))
+                    .list();
         } else {
             return session.createCriteria(ServiceRequest.class)
-                          .add(Restrictions.like("description", keyword, MatchMode.ANYWHERE))
-                          .add(Restrictions.eq("area.id", area))
-                          .add(Restrictions.eq("category.id", category))
-                          .list();
+                    .add(Restrictions.like("description", keyword, MatchMode.ANYWHERE))
+                    .createAlias("area", "area")
+                    .add(Restrictions.eq("area.id", area))
+                    .add(Restrictions.eq("category.id", category))
+                    .list();
         }
     }
 

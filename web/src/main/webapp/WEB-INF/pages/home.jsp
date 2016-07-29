@@ -24,12 +24,9 @@
      <div class="container slider-content">
          <div class="row">
              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                 <h2>Service Searching Just Got So Easy</h2>
+                 <h2>Service Requests Searching Just Got So Easy</h2>
 
-                 <p>Users create a request for a service, detailing their specific requirements.
-                     Service-Hub then generates the request and sends it out to the closest service-providers in your
-                     vicinity.</p>
-
+                 <p>Search service requests in your area by any category.</p>
                  <div class="search-form wow pulse" data-wow-delay="0.8s">
                      <form action="<c:url value='/postRequest/view'/>" class=" form-inline" method="GET">
                          <div class="form-group">
@@ -67,7 +64,7 @@
 
                  <p>Users create a request for a service, detailing their specific requirements.
                      Service-Hub then generates the request and sends it out to the closest service-providers in your
-                     vicinity via SMS.</p>
+                     area via SMS.</p>
              </div>
              <div class="row how-it-work text-center">
 
