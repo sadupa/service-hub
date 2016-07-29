@@ -68,7 +68,7 @@
                                   </dl>
                               </div>
                               <div class="col-md-2">
-                                  <div class="ui star rating" data-rating="3" id="q"></div>
+                                  <div class="ui huge star rating" data-rating="0" id="q"></div>
                               </div>
                           </div>
                       </div>
@@ -84,7 +84,7 @@
                                   </dl>
                               </div>
                               <div class="col-md-2">
-                                  <div class="ui star rating" data-rating="3" id="c"></div>
+                                  <div class="ui huge star rating" data-rating="0" id="c"></div>
                               </div>
                           </div>
                       </div>
@@ -100,7 +100,7 @@
                                   </dl>
                               </div>
                               <div class="col-md-2">
-                                  <div class="ui star rating" data-rating="3" id="e"></div>
+                                  <div class="ui huge star rating" data-rating="0" id="e"></div>
                               </div>
                           </div>
                       </div>
@@ -116,7 +116,7 @@
                                   </dl>
                               </div>
                               <div class="col-md-2">
-                                  <div class="ui star rating" data-rating="3" id="a"></div>
+                                  <div class="ui huge star rating" data-rating="0" id="a"></div>
                               </div>
                           </div>
                       </div>
@@ -132,18 +132,18 @@
                                   </dl>
                               </div>
                               <div class="col-md-2">
-                                  <div class="ui star rating" data-rating="3" id="p"></div>
+                                  <div class="ui huge star rating" data-rating="0" id="p"></div>
                               </div>
                           </div>
                       </div>
 
                       <form action="<c:url value="/rating/save"/>" method="post">
 
-                          <input type="hidden" id="quality" name="quality" value="3"/>
-                          <input type="hidden" id="communication" name="communication" value="3"/>
-                          <input type="hidden" id="expertise" name="expertise" value="3"/>
-                          <input type="hidden" id="hireAgain" name="hireAgain" value="3"/>
-                          <input type="hidden" id="professionalism" name="professionalism" value="3"/>
+                          <input type="hidden" id="quality" name="quality" value="0"/>
+                          <input type="hidden" id="communication" name="communication" value="0"/>
+                          <input type="hidden" id="expertise" name="expertise" value="0"/>
+                          <input type="hidden" id="hireAgain" name="hireAgain" value="0"/>
+                          <input type="hidden" id="professionalism" name="professionalism" value="0"/>
 
                           <input type="hidden" id="serviceId" name="serviceId" value="${serviceId}"/>
 
