@@ -57,10 +57,10 @@
              </div>
 
              <div class="col-lg-4">
-                 <a class="example-image-link" href="<c:url value="/images/employee1.png"/>" data-lightbox="example-set"><img class="example-image" src="<c:url value="/images/employee1.png"/>" alt=""/></a>
-                 <a class="example-image-link" href="<c:url value="/images/employee2.png"/>" data-lightbox="example-set"><img class="example-image" src="<c:url value="/images/employee2.png"/>" alt=""/></a>
-                 <a class="example-image-link" href="<c:url value="/images/employee3.png"/>" data-lightbox="example-set"><img class="example-image" src="<c:url value="/images/employee3.png"/>" alt="" /></a>
-                 <a class="example-image-link" href="<c:url value="/images/employee4.png"/>" data-lightbox="example-set"><img class="example-image" src="<c:url value="/images/employee4.png"/>" alt="" /></a>
+                 <a class="example-image-link" href="<c:url value="/images/wedding1.jpg"/>" data-lightbox="example-set"><img class="example-image" style="width: 170px;height: 220px" src="<c:url value="/images/wedding1.jpg"/>" alt=""/></a>
+                 <a class="example-image-link" href="<c:url value="/images/wedding2.jpg"/>" data-lightbox="example-set"><img class="example-image" style="width: 170px;height: 220px" src="<c:url value="/images/wedding2.jpg"/>" alt=""/></a>
+                 <a class="example-image-link" href="<c:url value="/images/wedding3.jpg"/>" data-lightbox="example-set"><img class="example-image" style="width: 170px;height: 220px" src="<c:url value="/images/wedding3.jpg"/>" alt="" /></a>
+                 <a class="example-image-link" href="<c:url value="/images/wedding4.jpg"/>" data-lightbox="example-set"><img class="example-image" style="width: 170px;height: 220px" src="<c:url value="/images/wedding4.jpg"/>" alt="" /></a>
              </div>
 
          </div>

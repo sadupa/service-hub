@@ -38,13 +38,8 @@ INSERT INTO user (id, email, enabled, username, password, status, role_id) VALUE
 INSERT INTO `tag` (`id`, `name`, `category`) VALUES
   (1, 'Wedding Photography', 1),
   (2, 'Event Photography', 1),
-  (3, 'AC', 2),
-  (4, 'non-AC', 2),
-  (5, 'Airport Hire', 2),
-  (6, 'Out Door Party', 3),
-  (7, 'Birthday Party', 3),
-  (8, 'Weddings', 3),
-  (9, 'Functions', 3);
+  (3, 'Wildlife', 1),
+  (4, 'Portrait', 1);
 
 INSERT INTO hms_service_hub.service (id, created_date, description, status, title, area_id, category_id, user_id) VALUES (1, '2016-07-07 00:00:00', 'We will provide professional photography service. If you are looking for a wedding, portrait, wildlife or commercial photographer in your area, then one of our fully qualified members will assure you of the highest professional service. Packages available.', 'ACTIVE', '"Life in Focus" Photography', 1, 1, 1),
   (2, '2016-07-08 00:00:00', 'We provides excellent and reliable service in 24 hours, 7 days a week, and 365 days a year. We have the largest network of branches and also have enough capability to provide our services island wide, using over 200 well-conditioned vehicles and talented drivers. The principal policy of Fast & Furious Cab service is muscularly based on the concept of providing exceptional and reliable service to its clients', 'ACTIVE', 'Fast & Furious Travel Solution', 3, 3, 1),
@@ -53,10 +48,5 @@ INSERT INTO hms_service_hub.service (id, created_date, description, status, titl
 INSERT INTO `service_tag` (`service_id`, `tag_id`) VALUES
   (1,1),
   (1,2),
-  (2,3),
-  (2,4),
-  (2,5),
-  (2,6),
-  (3,7),
-  (3,8),
-  (3,9);
+  (1,3),
+  (1,4);
