@@ -13,17 +13,32 @@ public class ServiceRequestDto {
     public String description;
     public String area;
     public String createdOn;
+    public boolean accepted;
+    public long bid;
 
     public ServiceRequestDto() {
     }
 
-    public ServiceRequestDto(long id, int random, String title, String description, String area, String createdOn) {
+    public ServiceRequestDto(long id, int random, String title, String description, String area, String createdOn,
+                             boolean accepted, long bid) {
         this.id = id;
         this.random = random;
         this.title = title;
         this.description = description;
         this.area = area;
         this.createdOn = createdOn;
+        this.accepted = accepted;
+        this.bid = bid;
+    }
+
+    public ServiceRequestDto(long id, int random, String title, String description, String area, String createdOn, boolean accepted) {
+        this.id = id;
+        this.random = random;
+        this.title = title;
+        this.description = description;
+        this.area = area;
+        this.createdOn = createdOn;
+        this.accepted = accepted;
     }
 
     public long getId() {
@@ -72,5 +87,21 @@ public class ServiceRequestDto {
 
     public void setCreatedOn(String createdOn) {
         this.createdOn = createdOn;
+    }
+
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
+    }
+
+    public long getBid() {
+        return bid;
+    }
+
+    public void setBid(long bid) {
+        this.bid = bid;
     }
 }

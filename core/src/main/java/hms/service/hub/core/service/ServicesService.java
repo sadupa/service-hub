@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface ServicesService {
     long save(Service service);
-    List<Service> getAllServices();
+    List<Service> getAllServices(int getCount);
     Service getSeriveById(long id);
 }

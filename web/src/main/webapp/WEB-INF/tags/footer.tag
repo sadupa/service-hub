@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <div class="single-footer">
                     <img src="<c:url value="/images/footer-logo.png" />" alt="" class="wow pulse" data-wow-delay="1s">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati architecto quaerat facere blanditiis tempora sequi nulla accusamus, possimus cum necessitatibus suscipit quia autem mollitia, similique quisquam molestias. Vel unde, blanditiis.</p>
+                    <p>Added to the request is your personalized message, detailing your specific requirements. Then just sit-back as the relevant service providers get into contact with you to compete for your business.</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -32,13 +32,15 @@
                     <h4>Useful lnks</h4>
                     <div class="footer-links">
                         <ul class="list-unstyled">
-                            <li><a href="">About Us</a></li>
-                            <li><a href="" class="active">Services</a></li>
-                            <li><a href="">Work</a></li>
-                            <li><a href="">Our Blog</a></li>
-                            <li><a href="">Customers Testimonials</a></li>
-                            <li><a href="">Affliate</a></li>
-                            <li><a href="">Contact Us</a></li>
+                            <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="<c:url value="/"/>">Home</a></li>
+                            <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="<c:url value="/services/add"/>">Create
+                                Service</a></li>
+                            <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="<c:url value="/services/all"/>">Services</a>
+                            </li>
+                            <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="<c:url value="/profile/"/>">Profile</a>
+                            </li>
+                            <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="<c:url value="/postRequest/"/>">Service Request</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

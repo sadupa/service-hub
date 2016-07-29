@@ -31,4 +31,12 @@ public class AreaDaoImpl extends UniversalDaoImpl<Area> implements AreaDao {
                 .add(Restrictions.eq("id", id))
                 .uniqueResult();
     }
+
+    @Override
+    public List<Area> getAreas(List<Long> areaIds) {
+            Session session = getCurrentSession();
+            return session.createCriteria(Area.class)
+                    .add(Restrictions.in("id", areaIds))
+                    .list();
+    }
 }

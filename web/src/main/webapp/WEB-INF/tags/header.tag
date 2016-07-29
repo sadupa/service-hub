@@ -10,8 +10,8 @@
             <div class="col-md-5 col-sm-8 col-xs-8">
                 <div class="header-half header-call">
                     <p>
-                        <span><i class="icon-cloud"></i>+019 4854 8817</span>
-                        <span><i class="icon-mail"></i>ohidul.islam951@gmail.com</span>
+                        <span><i class="icon-cloud"></i>+94 11 268 6751</span>
+                        <span><i class="icon-mail"></i>www.hsenidmobile.com</span>
                     </p>
                 </div>
             </div>

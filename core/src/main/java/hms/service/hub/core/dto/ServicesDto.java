@@ -20,11 +20,11 @@ public class ServicesDto {
     private Date createdDate;
     private String status;
     private Category category;
-    private Area area;
+    private List<Area> area;
     private User user;
     private List<Tag> tags;
 
-    public ServicesDto(Long id, Long imageId, String title, String description, Date createdDate, String status, Category category, Area area, User user, List<Tag> tags) {
+    public ServicesDto(Long id, Long imageId, String title, String description, Date createdDate, String status, Category category, List<Area> area, User user, List<Tag> tags) {
         this.id = id;
         this.imageId = imageId;
         this.title = title;
@@ -85,11 +85,11 @@ public class ServicesDto {
         this.category = category;
     }
 
-    public Area getArea() {
+    public List<Area> getArea() {
         return area;
     }
 
-    public void setArea(Area area) {
+    public void setArea(List<Area> area) {
         this.area = area;
     }
 

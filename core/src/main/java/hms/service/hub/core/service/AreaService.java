@@ -13,4 +13,6 @@ public interface AreaService {
     List<Area> getAllArea();
 
     Area getAreaById(long id);
+
+    List<Area> getAreas(List<Long> areaIds);
 }

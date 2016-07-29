@@ -10,4 +10,6 @@ import java.util.List;
 public interface AreaDao extends UniversalDao<Area> {
     List<Area> getAllArea();
     Area getAreaById(long id);
+
+    List<Area> getAreas(List<Long> areaIds);
 }

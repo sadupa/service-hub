@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface ServicesDao extends UniversalDao<Service> {
 
-    List<Service> getAllServices();
+    List<Service> getAllServices(int getCount);
 
     Service getSeriveById(long id);
 }

@@ -69,11 +69,11 @@ public class ServiceController {
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public String postService(@RequestParam("area") Long areaId, @RequestParam("category") Long categoryId,
+    public String postService(@RequestParam("area") List<Long> areaIds, @RequestParam("category") Long categoryId,
                               @RequestParam(value = "title", required = false) String title, @RequestParam(value = "description", required = false) String description,
                               @RequestParam(value = "tags", required = false) List<Long> tagsIds) {
         Service service = new Service();
-        service.setArea(areaService.getAreaById(areaId));
+        service.setArea(areaService.getAreas(areaIds));
         service.setCategory(categoryService.getCategoryById(categoryId));
         service.setTitle(title);
         service.setDescription(description);
@@ -94,7 +94,7 @@ public class ServiceController {
         Random rand = new Random();
 
         List<ServicesDto> servicesDtos = new ArrayList<>();
-        for (Service services : servicesService.getAllServices()) {
+        for (Service services : servicesService.getAllServices(0)) {
             servicesDtos.add(new ServicesDto(services.getId(), (long) (rand.nextInt(5) + 1), services.getTitle(), getFirstFifty(services.getDescription()), services.getCreatedDate(), services.getStatus(), services.getCategory(), services.getArea(), services.getUser(), services.getTags()));
         }
         modalMap.put("services", servicesDtos);
