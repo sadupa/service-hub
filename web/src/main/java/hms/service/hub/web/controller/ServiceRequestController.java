@@ -72,7 +72,7 @@ public class ServiceRequestController {
         ServiceRequest request = new ServiceRequest();
         request.setTitle(title);
         request.setCategory(categoryService.getCategoryById(category));
-        //request.setArea(areaService.getAreasByIds(areas));
+        request.setArea(areaService.getAreas(areas));
         request.setDescription(description);
         request.setTags(tagService.getTagsByIds(tags));
         request.setStatus(RequestStatus.CREATED);
@@ -101,10 +101,10 @@ public class ServiceRequestController {
                 isAccepted = true;
             }
             if(!isAccepted){
-                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),null/*serviceRequest.getArea().getName()*/,
                         DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted));
             }else {
-                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),/*serviceRequest.getArea().getName()*/null,
                         DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted,serviceRequest.getAssigned_bid().getId()));
             }
 
@@ -142,10 +142,10 @@ public class ServiceRequestController {
                 isAccepted = true;
             }
             if(!isAccepted){
-                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),null/*serviceRequest.getArea().getName()*/,
                         DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted));
             }else {
-                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),serviceRequest.getArea().getName(),
+                serviceRequestDtos.add(new ServiceRequestDto(serviceRequest.getId(),rand.nextInt(5) + 1,serviceRequest.getTitle(),getFirstTwenty(serviceRequest.getDescription()),null/*serviceRequest.getArea().getName()*/,
                         DurationFormatUtils.formatDurationWords(new Date().getTime() -  serviceRequest.getCreatedDate().getTime(), true, false)+" ago",isAccepted,serviceRequest.getAssigned_bid().getId()));
             }
         }
