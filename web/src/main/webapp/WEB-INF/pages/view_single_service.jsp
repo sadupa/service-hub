@@ -14,11 +14,11 @@
 <t:wrapper>
 
     <jsp:attribute name="js_file_includes">
-        <script type="text/javascript" src="<c:url value="/js/bootstrap-table.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/lightbox.js" />"></script>
     </jsp:attribute>
 
     <jsp:attribute name="css_file_includes">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/bootstrap-table.css" />"/>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/lightbox.css" />"/>
     </jsp:attribute>
 
 
@@ -30,26 +30,38 @@
 
      <div class="container">
 
-         <div class="col-lg-8">
 
-             <div class="row">
-                 <div class="col-sm-2">
-                     <img src="<c:url value="/images/job-logo${service.imageId}.png"/>" alt="">
+         <div class="row">
+
+             <div class="col-lg-8">
+
+                 <div class="row">
+                     <div class="col-sm-2">
+                         <img src="<c:url value="/images/job-logo${service.imageId}.png"/>" alt="">
+                     </div>
+                     <div class="col-sm-8">
+                         <h3>${service.title}</h3>
+                         <h5>${service.category.name}</h5>
+                     </div>
                  </div>
-                 <div class="col-sm-8">
-                     <h3>${service.title}</h3>
-                     <h5>${service.category.name}</h5>
-                 </div>
+                 <hr/>
+                 <p style="font-size: 16px;">${service.description}</p>
+
+                 <p><i class="icon-location"></i>${service.area.name}</p>
+                 <hr/>
+                 <c:forEach items="${service.tags}" var="tag">
+                     <span class="label label-info">${tag.name}</span>
+                 </c:forEach>
+                 <hr/>
+
              </div>
-             <hr/>
-             <p style="font-size: 16px;">${service.description}</p>
 
-             <p><i class="icon-location"></i>${service.area.name}</p>
-             <hr/>
-             <c:forEach items="${service.tags}" var="tag">
-                 <span class="label label-info">${tag.name}</span>
-             </c:forEach>
-             <hr/>
+             <div class="col-lg-4">
+                 <a class="example-image-link" href="<c:url value="/images/employee1.png"/>" data-lightbox="example-set"><img class="example-image" src="<c:url value="/images/employee1.png"/>" alt=""/></a>
+                 <a class="example-image-link" href="<c:url value="/images/employee2.png"/>" data-lightbox="example-set"><img class="example-image" src="<c:url value="/images/employee2.png"/>" alt=""/></a>
+                 <a class="example-image-link" href="<c:url value="/images/employee3.png"/>" data-lightbox="example-set"><img class="example-image" src="<c:url value="/images/employee3.png"/>" alt="" /></a>
+                 <a class="example-image-link" href="<c:url value="/images/employee4.png"/>" data-lightbox="example-set"><img class="example-image" src="<c:url value="/images/employee4.png"/>" alt="" /></a>
+             </div>
 
          </div>
 
